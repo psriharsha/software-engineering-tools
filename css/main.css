@@ -65,6 +65,7 @@ h1{
 	background:#099;
 	color:#FFF;
 	height:150px;
+	clear:both;
 }
 
 #menu ul{
@@ -167,4 +168,14 @@ box-shadow: 10px 5px 5px #161616;
 }
 .content td{
 	text-align:center;
+}
+
+#leftContent{
+	width:60%;
+	float:left;
+}
+
+#registration{
+	width:30%;
+	float:right;
 }
