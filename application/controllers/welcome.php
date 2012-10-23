@@ -6,4 +6,14 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('template');
 	}
+	
+	public function login(){
+		$username = $this->input->post('username');
+		$password =  $this->input->post('password');
+		$this->load->model('Register');
+		if($this->Register->checkLogin($username,$password))
+			redirect(base_url()."jobseeker/home");
+		else
+			echo "Invalid Details";
+	}
 }
