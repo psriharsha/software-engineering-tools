@@ -12,7 +12,7 @@ class Welcome extends CI_Controller {
 		$password =  $this->input->post('password');
 		$this->load->model('Register');
 		if($this->Register->checkLogin($username,$password))
-			redirect(base_url()."jobseeker/home");
+			redirect(base_url()."index.php/jobseeker/home");
 		else
 			echo "Invalid Details";
 	}
