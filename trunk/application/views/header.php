@@ -5,7 +5,7 @@
 <title>Untitled Document</title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/style.js"></script>
-<link href="css/main.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url() ?>css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="container" class="frame"> <!--The main container which should be in the middle-->
