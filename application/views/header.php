@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="js/style.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>js/style.js"></script>
 <link href="<?php echo base_url() ?>css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
