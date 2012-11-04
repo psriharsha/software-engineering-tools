@@ -4,6 +4,12 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		echo "Hello JobSeeker";
+		$send['content'] = "jobseeker/Content";
+		$this->load->view('jobseeker/template',$send);
+	}
+	
+	public function editCV() {
+		$send['content'] = "jobseeker/accordian";
+		$this->load->view('jobseeker/template',$send);
 	}
 }
