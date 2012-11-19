@@ -4,21 +4,17 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('employee/template');
+		$send['content'] = "employee/content";
+		$this->load->view('employee/template',$send);
 	}
 	
 	public function searchJobseeker(){
 		$this->load->model('dropdown');
-		$data = array(
-				'dropdown_education' => $this->dropdown->dropdown_education(),
-				'dropdown_job' => $this->dropdown->dropdown_job(),
-				'dropdown_sector' => $this->dropdown->dropdown_sector() );
 		
-		$this->load->view('employee/header');
-		$this->load->view('employee/menu');
-		$this->load->view('employee/search_View',$data);
-		$this->load->view('employee/footer');
-		
-
+		$send['content'] = "employee/search_View";
+		$send['dropdown_education'] = $this->dropdown->dropdown_education();
+		$send['dropdown_job'] = $this->dropdown->dropdown_job();
+		$send['dropdown_sector'] = $this->dropdown->dropdown_sector();
+		$this->load->view('employee/template',$send);
 	}
 }
