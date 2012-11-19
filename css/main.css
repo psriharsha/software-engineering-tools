@@ -175,7 +175,27 @@ box-shadow: 10px 5px 5px #161616;
 	float:left;
 }
 
-#registration{
+#login{
 	width:30%;
 	float:right;
+	border: 1px solid white;
+	padding: 1 en;
+}
+
+input[type=text],input[type=password]{
+	display: block;
+	margin: 0 0 1en 0;
+	padding: 1en;
+}
+
+#search{
+	width:60%;
+	float:left;
+}
+
+#register{
+	width:30%;
+	float:right;
+	border: 1px solid white;
+	padding: 1 en;
 }
