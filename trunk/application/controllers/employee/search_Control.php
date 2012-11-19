@@ -2,15 +2,17 @@
 
 class search_Control extends CI_Controller {
 
-	public function index()
-	{
-		$this->load->view('employee/template');
-	}
-	
 	public function searchJobseeker(){
 		$this->load->model('search_Model');
-		$data['list'] = $this->search_Model->getJobSeeker();
-		$this->load->view('search_View',$data);
+		
+		$this->load->model('dropdown');
+		$data = $this->search_Model->getJobSeeker();
+		$send['content'] = "employee/search_View";
+		$send['dropdown_education'] = $this->dropdown->dropdown_education();
+		$send['dropdown_job'] = $this->dropdown->dropdown_job();
+		$send['dropdown_sector'] = $this->dropdown->dropdown_sector();
+	    $send['info'] = $data;
+		$this->load->view('employee/template',$send);
 	}
 	
 	

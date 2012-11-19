@@ -1,14 +1,11 @@
 <?php
 class search_Model extends CI_Model{
 	
-	public function getJobSeeker()	{
+	public function getJobSeeker($skill)	{
 			
-		$sql = "SELECT name, surname FROM persons, skills, experiences, educational_qualifications"+
-			   " WHERE educationLevels_idEducationLevel = ? AND"+
-			   " skillName = ? AND"+
-			   " JobTitles_idJobTitles = ?";
+		$sql = "SELECT forename1, surname FROM persons AS p INNER JOIN skills AS s WHERE p.idUser = s.Persons_idUser AND s.skillName = ?";
 		
-		$q = $this->db->query($sql,array());
+		$q = $this->db->query($sql,array($skill));
 		
 		if($q->num_rows() >0)
 		{
