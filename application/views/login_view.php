@@ -1,0 +1,16 @@
+<div id="login">
+<h1>Login</h1>
+
+<?php 
+	
+	echo form_open(base_url()."index.php/login/validate_credentials");
+	echo form_input('username','Username');
+	echo form_password('password','Password');
+	echo form_submit('submit','Login');
+	
+	echo anchor(base_url()."index.php/login/signup",'Create Account');
+	
+	?>
+
+
+</div>
