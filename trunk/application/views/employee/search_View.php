@@ -7,7 +7,7 @@
 <table>
 	<tr>
 		<th>skill:</th>
-		<th><input type="text" name="skill" value="skill"></th> 
+		<th><input type="text" name="skill" value = ""></th> 
 	</tr>
 	<tr>
 		<th>education</th>
@@ -19,7 +19,8 @@
 	</tr>
 	<tr>
 		<th>qualification type</th>
-		<th><input type="text" name="qualificationType" value="qualificationType"></th>
+		<th><input type="text" name="qualificationType" value = ""></th>
+	</tr>
 	<tr>
 		<th>experience</th>
 		<th></th> 
@@ -29,8 +30,8 @@
 		<th><?php echo form_dropdown('jobTitle', $dropdown_job);?></th>
 	</tr>
 	<tr>
-		<th>sector</th>
-		<th><?php echo form_dropdown('sectorTitle', $dropdown_sector);?></th>
+		<th>employment_levels</th>
+		<th><?php echo form_dropdown('employmentLevels', $dropdown_employmentLevel);?></th>
 	</tr>
 
 </table>
@@ -38,11 +39,27 @@
 </form>
 
 <br>
+
 <h1>RESULTS</h1>
+
+<table border="1">
+		<tr>
+			<th>Name</th><th>Surname</th><th>Prefered Job</th>
+		</tr>
+<?php if($records != "No records were returned") : foreach ($records as $rows) :?>
+
+											<tr>
+												<th><?php echo $name = $rows->forename1; ?></th>
+												<th><?php echo $surname = $rows->surname;?></th>
+												<th><?php echo $prefJob = $rows->jobTitle;?></th>
+											</tr>
+												<?php endforeach;?>
+		
+	<?php else : ?>
+		<?php print("No records were returned");?>
+			
+<?php endif;?>
+
+</table>
+
 </div>
-<?php foreach($first as $name)
-{ 	
-	echo $name;
-	foreach($last as $sur)
-		echo '  '.$sur;
-} ?>

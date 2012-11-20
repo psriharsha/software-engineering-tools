@@ -15,7 +15,7 @@ class Welcome extends CI_Controller {
 			redirect(base_url()."index.php/jobseeker/home");
 		else
 			echo "Invalid Details";
-	}*/
+	}
 	
 	public function register(){
 		
@@ -28,5 +28,5 @@ class Welcome extends CI_Controller {
 		
 		$this->load->model('register');
 		$this->register->createJobseeker($data);	
-	}
+	}*/
 }

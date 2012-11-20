@@ -3,22 +3,25 @@
 class search_Control extends CI_Controller {
 
 	public function searchJobseeker(){
-		$this->load->model('search_Model');
-		
+		$this->load->model('search_Model');	
 		$this->load->model('dropdown');
-		$data = $this->search_Model->getJobSeeker('PHP');
+		
+		$data = $this->search_Model->getJobSeeker();
+			
+			if($data == array()){
+				$send['records'] = "No records were returned";
+			}
+			else{
+				$send['records'] = $data;	
+			}
+			
 		$send['content'] = "employee/search_View";
 		$send['dropdown_education'] = $this->dropdown->dropdown_education();
 		$send['dropdown_job'] = $this->dropdown->dropdown_job();
-		$send['dropdown_sector'] = $this->dropdown->dropdown_sector();
-		foreach($data as $row)
-		{
-			$firstname[] = $row->forename1;
-			$surname[] = $row->surname;
-		}
-		$send['first'] = $firstname;
-		$send['last'] = $surname;
-		$this->load->view('employee/search_View',$send);
+		$send['dropdown_employmentLevel'] = $this->dropdown->dropdown_employmentLevel();
+
+		$this->load->view('template',$send);
+		
 	}
 	
 	

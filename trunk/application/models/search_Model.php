@@ -30,7 +30,7 @@ class search_Model extends CI_Model{
 		else {
 			
 			if($skill=="" || $qualification_type=="" || $selected_educationLevel==0 || $selected_jobTitle==0 || $selected_employmentLevels==0){
-				$data[] = $this->getAllJobseeker(); 
+				$data = $this->getAllJobseeker(); 
 			}
 		}
 
@@ -54,7 +54,6 @@ class search_Model extends CI_Model{
 		
 		
 		$q = $this->db->query($sql,array($skill,$selected_educationLevel,$selected_jobTitle,$qualification_type,$selected_employmentLevels));
-		
 		if($q->num_rows() >0)
 		{
 			foreach ($q->result() as $rows)
@@ -62,7 +61,7 @@ class search_Model extends CI_Model{
 				$data[] = $rows;
 			}
 		}
-		else { $data = "No data"; }
+		else {$data = array();}
 		return $data;
 	}
 	
