@@ -199,3 +199,19 @@ input[type=text],input[type=password]{
 	border: 1px solid white;
 	padding: 1 en;
 }
+
+.sendData{
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	background:#0CF;
+	color:#FFF;
+
+	}
+
+.accTable{
+	width:60%;
+	margin:auto;
+}
+
+input[type="text"],select{
+	padding:0.5em 0.5em 0.5em 0.5em;
+}
