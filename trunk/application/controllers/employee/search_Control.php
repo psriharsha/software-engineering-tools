@@ -12,7 +12,8 @@ class search_Control extends CI_Controller {
 		$send['dropdown_job'] = $this->dropdown->dropdown_job();
 		$send['dropdown_sector'] = $this->dropdown->dropdown_sector();
 	    $send['info'] = $data;
-		$this->load->view('employee/template',$send);
+		//$this->load->view('employee/template',$send);
+		print_r($data);
 	}
 	
 	

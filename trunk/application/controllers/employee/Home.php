@@ -15,6 +15,6 @@ class Home extends CI_Controller {
 		$send['dropdown_education'] = $this->dropdown->dropdown_education();
 		$send['dropdown_job'] = $this->dropdown->dropdown_job();
 		$send['dropdown_sector'] = $this->dropdown->dropdown_sector();
-		$this->load->view('employee/template',$send);
+		$this->load->view('employee/search_View',$send);
 	}
 }
