@@ -13,6 +13,7 @@ class search_Model extends CI_Model{
 			{
 				$data[] = $rows;
 			}
+			
 		}
 		else {
 			$data = "No result";
