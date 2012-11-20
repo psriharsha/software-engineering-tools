@@ -2,7 +2,7 @@
 <ul>
 <li id="acc1">Personal Details</li>
 <li id="acc1c">
-<table width="600">
+<table class="accTable" cellspacing="10px">
 <tr>
 <td align="right">Title</td>
 <td>
@@ -106,7 +106,7 @@ for ($i=0; $i<20; $i++)
 </li>
 <li id="acc2">Contact Details</li>										<!--  Accordian 2  -->
 <li id="acc2c">
-<table width = "600px">
+<table class="accTable" cellspacing="10px">
 <tr>
 <td align="right">Alternate Mail</td>
 <td><input name="altmail" type="text" size="20" maxlength="20" />
@@ -136,7 +136,7 @@ for ($i=0; $i<20; $i++)
 </li>																		<!--  Accordian 2  -->
 <li id="acc3">Educational Qualifications</li>								<!-- Educational Qualifications -->
 <li id="acc3c">
-<table width="600px">
+<table class="accTable" cellspacing="10px">
 <tr>
 <td align="right">Qualification</td>
 <td><input name="qual" type="text" size="20" maxlength="20" />
@@ -196,11 +196,15 @@ for ($i=0; $i<20; $i++)
 <td><input id="veri" type="text" size="20" maxlength="20" />
 </td>
 </tr>
+<tr>
+<td colspan="2" align="center" style="padding-top: 30px"><span class="sendData">Submit</span>
+</td>
+</tr>
 </table>
 </li>
 <li id="acc4">Professional Qualifications</li>
 <li id="acc4c">
-<table width="600px">
+<table class="accTable" cellspacing="10px">
 <tr>
 <td align="right">Qualification</td>
 <td><input id="qualification" type="text" size="20" maxlength="20" />
@@ -299,7 +303,7 @@ for ($i=0; $i<20; $i++)
 </li>
 <li id="acc6">Referees</li>
 <li id="acc6c">
-<table width="600px">
+<table class="accTable" cellspacing="10px">
 <tr>
 <td align="right">Title</td>
 <td>
