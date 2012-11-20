@@ -25,14 +25,14 @@ class Dropdown extends CI_Model{
 		return ($data);
 	}
 	
-	public function dropdown_sector(){
-		$this->db->select('idSectors,sectorTitle');
-		$record = $this->db->get('sectors');
+	public function dropdown_employmentLevel(){
+		$this->db->select('idLevelsOfEmployment,employmentLevel');
+		$record = $this->db->get('employment_levels');
 		
 		$data = array();
 		$data[0] = 'SELECT';
 		foreach($record->result() as $row){
-			$data[$row->idSectors] = $row->sectorTitle;
+			$data[$row->idLevelsOfEmployment] = $row->employmentLevel;
 		}
 		return($data);
 	}
