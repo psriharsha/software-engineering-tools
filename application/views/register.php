@@ -1,10 +1,26 @@
-<div id="registration">
-Login and Registration
-<br>
-<h1>Login</h1>
-<form action = "<?php echo base_url()?>index.php/welcome/login" method="post" >
-<input type="text" name="username" value="Username">
-<input type="password" name="password" value="Password"><br>
-<input type="submit" value="Log In">
+<div id="register">
+
+<h1>Registration</h1>
+<form action = "<?php echo base_url()?>login/register" method="post">
+	<p>
+		<label for="name">Name:</label>
+		<input type="text" name="name"/>
+	</p>
+	<p>
+		<label for="surname">Surname:</label>
+		<input type="text" name="surname"/>
+	</p>
+	<p>
+		<label for="email">Email:</label>
+		<input type="text" name="email"/>
+	</p>
+	<p>
+		<label for="password">Password:</label>
+		<input type="password" name="password"/>
+	</p>
+	<input type="submit" value="submit"/>
+
 </form>
+
+
 </div>
