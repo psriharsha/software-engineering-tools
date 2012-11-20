@@ -3,7 +3,8 @@
 class Login extends CI_Controller {
 	
 	function index(){
-		$this->load->view('template');
+		$send['content'] = "login_view";
+		$this->load->view('template',$send);
 	}
 	
 	function validate_credentials(){
@@ -39,10 +40,8 @@ class Login extends CI_Controller {
 	
 	function signup(){
 		
-		$this->load->view('header');
-		$this->load->view('register');
-		$this->load->view('leftContent');
-		$this->load->view('footer');
+		$send['content'] = "register";
+		$this->load->view('template',$send);
 	}
 
 	function register(){
