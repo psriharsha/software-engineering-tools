@@ -40,3 +40,9 @@
 <br>
 <h1>RESULTS</h1>
 </div>
+<?php foreach($first as $name)
+{ 	
+	echo $name;
+	foreach($last as $sur)
+		echo '  '.$sur;
+} ?>
