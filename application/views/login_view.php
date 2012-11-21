@@ -1,5 +1,5 @@
 <div id="login">
-<h1>Login</h1>
+<h2>Login</h2>
 
 <?php 
 	
