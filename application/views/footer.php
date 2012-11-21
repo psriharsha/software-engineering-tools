@@ -1,5 +1,8 @@
 <div id="footer">
-Text is to be written
+
+<a href="<?php echo base_url();?>index.php/welcome/selectedAbout">About</a>
+<a href="<?php echo base_url();?>index.php/welcome/selectedContact">Contact us</a>
+
 </div><!--End of the Footer-->
 
 </body>

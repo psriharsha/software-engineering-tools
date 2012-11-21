@@ -4,6 +4,8 @@ class ViewCV extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		//$data['id'] = $this->MOrders->read_order($id);
+		$msg = "you have selected...";
+		print_r($msg); 
 	}
 }

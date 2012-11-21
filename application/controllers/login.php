@@ -14,6 +14,7 @@ class Login extends CI_Controller {
 			
 			$data = array(
 				'username' => $this->input->post('username'),
+				'type' =>"1",
 				'is_logged_in' => true
 			);
 			
@@ -25,7 +26,8 @@ class Login extends CI_Controller {
 			if($query)
 			{
 				$data = array(
-					'username' => $this->input->post('username'),
+				'username' => $this->input->post('username'),
+				'type' => "2",
 				'is_logged_in' => true
 				);
 				
@@ -45,17 +47,30 @@ class Login extends CI_Controller {
 	}
 
 	function register(){
-		$data = array(
-			'forename1' => $this->input->post('name'),
-			'surname' => $this->input->post('surname'),
-			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password')
-		);
 		
-		$this->load->model('register');
-		$this->register->createJobseeker($data);
-			
-		$this->session->set_userdata($this->input->post('username'));
-		redirect(base_url()."index.php/jobseeker/home");
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('name', 'Name', 'trim|required');
+		$this->form_validation->set_rules('surname', 'Surname', 'trim|required');
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|valid_email|max_length[50]');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|max_length[16]');
+		$this->form_validation->set_rules('password2', 'Confirmation Password', 'trim|required|max_length[16]|matches[password]');
+		
+		if($this->form_validation->run() == FALSE){
+			$this->signup();
+		}
+
+		else{
+			$data = array(
+				'forename1' => $this->input->post('name'),
+				'surname' => $this->input->post('surname'),
+				'username' => $this->input->post('username'),
+				'password' => $this->input->post('password')
+			);
+		
+			$this->load->model('register');
+			$this->register->createJobseeker($data);
+			$this->session->set_userdata($this->input->post('username'));
+			redirect(base_url()."index.php/jobseeker/home");
+			}
 	}
 }

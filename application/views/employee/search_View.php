@@ -3,41 +3,43 @@
 <fieldset>
 <legend><h2>Search form</h2></legend>
 <form action ="<?php echo base_url()?>index.php/employee/search_Control/searchJobseeker" method="post">
-<table>
+	<fieldset>
+	<legend><h3>Educational</h3></legend>
+	<table id="education" width="600">
 	<tr>
-		<th>skill:</th>
-		<th><input type="text" name="skill" value = ""></th> 
+		<td>education level:</td>
+		<td><?php echo form_dropdown('educationLevel', $dropdown_education);?></th>
 	</tr>
 	<tr>
-		<th>education</th>
-		<th></th>
+		<td>qualification type</td>
+		<td><input type="text" name="qualificationType" value = ""></td>
+	</tr>
+	</table>
+	</fieldset>
+	
+	<fieldset>
+	<legend><h3>Qualification</h3></legend>
+	<table id="qualification" width="550">
+	<tr>
+		<td>skill:</td>
+		<td><input type="text" name="skill" value = ""></td> 
 	</tr>
 	<tr>
-		<th>education level:</th>
-		<th><?php echo form_dropdown('educationLevel', $dropdown_education);?></th>
+		<td>experience</td>
+		<td></td> 
 	</tr>
 	<tr>
-		<th>qualification type</th>
-		<th><input type="text" name="qualificationType" value = ""></th>
+		<td>job title</td>
+		<td><?php echo form_dropdown('jobTitle', $dropdown_job);?></td>
 	</tr>
 	<tr>
-		<th>experience</th>
-		<th></th> 
+		<td>employment_levels</td>
+		<td><?php echo form_dropdown('employmentLevels', $dropdown_employmentLevel);?></td>
 	</tr>
-	<tr>
-		<th>job title</th>
-		<th><?php echo form_dropdown('jobTitle', $dropdown_job);?></th>
-	</tr>
-	<tr>
-		<th>employment_levels</th>
-		<th><?php echo form_dropdown('employmentLevels', $dropdown_employmentLevel);?></th>
-	</tr>
-	<tr>
-		<th></th>
-		<th><input type="submit" value="SUBMIT"></th>
-	</tr>
+	</table>
+	</fieldset>
+<input type="submit" value="SUBMIT">
 
-</table>
 </form>
 
 </fieldset>

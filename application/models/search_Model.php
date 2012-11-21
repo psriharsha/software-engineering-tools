@@ -10,7 +10,7 @@ class search_Model extends CI_Model{
 		$selected_jobTitle = $this->input->post('jobTitle');
 		$selected_employmentLevels = $this->input->post('employmentLevels');
 		
-		$sql = "SELECT forename1, surname, jobTitle
+		$sql = "SELECT idUser, forename1, surname, jobTitle
 				FROM ((((persons AS p LEFT JOIN (job_preferences AS jp LEFT JOIN job_titles AS jt ON jp.JobTitles_idJobTitles = jt.idJobTitles) 
 				ON p.idUser = jp.person_idUser)LEFT JOIN skills AS s ON p.idUser = s.Persons_idUser) LEFT JOIN experiences AS ex ON p.idUser = ex.Persons_idUser)
 				LEFT JOIN educational_qualifications AS eduQ ON p.idUser = eduQ.Persons_idUser)
@@ -46,7 +46,7 @@ class search_Model extends CI_Model{
 		$selected_jobTitle = $this->input->post('jobTitle');
 		$selected_employmentLevels = $this->input->post('employmentLevels');
 		
-		$sql = "SELECT forename1, surname, jobTitle
+		$sql = "SELECT idUser, forename1, surname, jobTitle
 				FROM ((((persons AS p LEFT JOIN (job_preferences AS jp LEFT JOIN job_titles AS jt ON jp.JobTitles_idJobTitles = jt.idJobTitles) 
 				ON p.idUser = jp.person_idUser)LEFT JOIN skills AS s ON p.idUser = s.Persons_idUser) LEFT JOIN experiences AS ex ON p.idUser = ex.Persons_idUser)
 				LEFT JOIN educational_qualifications AS eduQ ON p.idUser = eduQ.Persons_idUser)
