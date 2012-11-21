@@ -1,6 +1,7 @@
 <?php
 class Login_Model extends CI_Model{
 	
+	//check for jobseeker login
 	public function validate_jobseeker(){
 		$this->db->where('username',$this->input->post('username'));
 		$this->db->where('password',$this->input->post('password'));
@@ -11,8 +12,8 @@ class Login_Model extends CI_Model{
 			return true;
 		}
 	}
-	
-	public function validate_employee(){
+	//check for employer login
+	public function validate_employer(){
 		$this->db->where('username',$this->input->post('username'));
 		$this->db->where('password',$this->input->post('password'));
 		$query = $this->db->get('employee');
@@ -23,17 +24,5 @@ class Login_Model extends CI_Model{
 		}
 	}
 	
-	
-	
-	/*public function checkLogin($username,$password){
-		$valid = false;
-		$this->db->where('username',$username);
-		$this->db->where('password',$password);
-		$result = $this->db->get('persons');
-		if($result->num_rows() == 1){
-			$valid = true;
-		}
-		return $valid;
-	}*/
 	
 }

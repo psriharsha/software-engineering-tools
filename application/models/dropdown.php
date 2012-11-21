@@ -1,6 +1,8 @@
 <?php
 class Dropdown extends CI_Model{
 	
+	//retrieve values from the database
+	
 	public function dropdown_job(){
 		$this->db->select('idJobTitles,jobTitle');
 		$record = $this->db->get('job_titles');
