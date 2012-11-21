@@ -2,7 +2,7 @@
 
 class Home extends CI_Controller {
 
-	public function index()
+	/*public function index()
 	{
 		$send['content'] = "employee/content";
 		$send['content2'] = "employee/content2";
@@ -18,5 +18,5 @@ class Home extends CI_Controller {
 		$send['dropdown_job'] = $this->dropdown->dropdown_job();
 		$send['dropdown_employmentLevel'] = $this->dropdown->dropdown_employmentLevel();
 		$this->load->view('employee/template',$send);
-	}
+	}*/
 }
