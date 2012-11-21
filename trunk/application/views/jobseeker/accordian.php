@@ -4,7 +4,7 @@
 <li id="acc1c">
 <table class="accTable" cellspacing="10px">
 <tr>
-<td align="right">Title</td>
+<td>Title</td>
 <td>
 <select name="title" size="1">
 <option>Mr</option>
@@ -13,52 +13,52 @@
 </td>
 </tr>
 <tr>
-<td align="right">Forename 1</td>
+<td>Forename 1</td>
 <td><input name="forename1" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Forename 2</td>
+<td>Forename 2</td>
 <td><input name="forename2" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Surname</td>
+<td>Surname</td>
 <td><input name="surname" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Date of Birth</td>
+<td>Date of Birth</td>
 <td><input class="inputDate" id="inputDate" value="19/11/2012" />
 </td>
 </tr>
 <tr>
-<td align="right">Address Line 1</td>
+<td>Address Line 1</td>
 <td><input name="add1" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Address Line 2</td>
+<td>Address Line 2</td>
 <td><input name="add2" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Town</td>
+<td>Town</td>
 <td><input name="town" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Postcode</td>
+<td>Postcode</td>
 <td><input name="postcode" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Personal URL</td>
+<td>Personal URL</td>
 <td><input name="perurl" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Gender</td>
+<td>Gender</td>
 <td>
 <select name="female" size="1">
 <option>Male</option>
@@ -67,12 +67,12 @@
 </td>
 </tr>
 <tr>
-<td align="right">Work Statement Issued by</td>
+<td>Work Statement Issued by</td>
 <td><input name="authwork" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Number of GCSEs passed</td>
+<td>Number of GCSEs passed</td>
 <td>
 <select name="noofgcse">
 <?php 
@@ -83,17 +83,17 @@ for ($i=0; $i<20; $i++)
 </td>
 </tr>
 <tr>
-<td align="right">GCSE English Grade</td>
+<td>GCSE English Grade</td>
 <td><input name="gcseeng" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">GCSE Math Grade</td>
+<td>GCSE Math Grade</td>
 <td><input name="gcsemath" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Current Student Status</td>
+<td>Current Student Status</td>
 <td>
 <select name="stusta">
 <option>Part Time</option>
@@ -108,22 +108,22 @@ for ($i=0; $i<20; $i++)
 <li id="acc2c">
 <table class="accTable" cellspacing="10px">
 <tr>
-<td align="right">Alternate Mail</td>
+<td>Alternate Mail</td>
 <td><input name="altmail" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Mobile Number</td>
+<td>Mobile Number</td>
 <td><input name="mobile" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Landline Number</td>
+<td>Landline Number</td>
 <td><input name="land" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Contact Preference</td>
+<td>Contact Preference</td>
 <td>
 <select name="conpre" size="1">
 <option>Primary E-mail</option>
@@ -138,52 +138,52 @@ for ($i=0; $i<20; $i++)
 <li id="acc3c">
 <table class="accTable" cellspacing="10px">
 <tr>
-<td align="right">Qualification</td>
+<td>Qualification</td>
 <td><input name="qual" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Course</td>
+<td>Course</td>
 <td><input name="course" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Educational Level</td>
+<td>Educational Level</td>
 <td><input name="edulevel" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Course Type</td>
+<td>Course Type</td>
 <td><input name="coursetype" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Specialization</td>
+<td>Specialization</td>
 <td><input name="coursetype" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Institution Name</td>
+<td>Institution Name</td>
 <td><input name="insti" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Country</td>
+<td>Country</td>
 <td><input name="country" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Year</td>
+<td>Year</td>
 <td><input id="year" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Grade</td>
+<td>Grade</td>
 <td><input id="grade" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Verified</td>
+<td>Verified</td>
 <td>
 <select id="veri">
 <option>Yes</option>
@@ -192,7 +192,7 @@ for ($i=0; $i<20; $i++)
 </td>
 </tr>
 <tr>
-<td align="right">Verified By</td>
+<td>Verified By</td>
 <td><input id="veri" type="text" size="20" maxlength="20" />
 </td>
 </tr>
@@ -206,38 +206,38 @@ for ($i=0; $i<20; $i++)
 <li id="acc4c">
 <table class="accTable" cellspacing="10px">
 <tr>
-<td align="right">Qualification</td>
+<td>Qualification</td>
 <td><input id="qualification" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Sector</td>
+<td>Sector</td>
 <td>
 <select id="sector"></select>
 </td>
 </tr>
 <tr>
-<td align="right">Other Sector</td>
+<td>Other Sector</td>
 <td><input id="other" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Awarding Body</td>
+<td>Awarding Body</td>
 <td><input id="awardingbody" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Year Obtained</td>
+<td>Year Obtained</td>
 <td><input id="profyear" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Result</td>
+<td>Result</td>
 <td><input id="result" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Verified</td>
+<td>Verified</td>
 <td>
 <select id="profveri">
 <option>Yes</option>
@@ -246,7 +246,7 @@ for ($i=0; $i<20; $i++)
 </td>
 </tr>
 <tr>
-<td align="right">Verified By</td>
+<td>Verified By</td>
 <td><input id="profveriby" type="text" size="20" maxlength="20" />
 </td>
 </tr>
@@ -254,39 +254,39 @@ for ($i=0; $i<20; $i++)
 </li>
 <li id="acc5">Experiences</li>
 <li id="acc5c">
-<table width="600px">
+<table class="accTable" cellspacing="10px">
 <tr>
-<td align="right">Job Title</td>
+<td>Job Title</td>
 <td><input id="jobtitle" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Employment Level</td>
+<td>Employment Level</td>
 <td><input id="emplevel" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Company Name</td>
+<td>Company Name</td>
 <td><input id="emplrname" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Date Started</td>
+<td>Date Started</td>
 <td><input id="datestart" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Date Ended</td>
+<td>Date Ended</td>
 <td><input id="dateend" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Key Duties</td>
+<td>Key Duties</td>
 <td><input id="duties" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Verified</td>
+<td>Verified</td>
 <td>
 <select id="expveri">
 <option>Yes</option>
@@ -295,7 +295,7 @@ for ($i=0; $i<20; $i++)
 </td>
 </tr>
 <tr>
-<td align="right">Verified By</td>
+<td>Verified By</td>
 <td><input id="expveriby" type="text" size="20" maxlength="20" />
 </td>
 </tr>
@@ -305,7 +305,7 @@ for ($i=0; $i<20; $i++)
 <li id="acc6c">
 <table class="accTable" cellspacing="10px">
 <tr>
-<td align="right">Title</td>
+<td>Title</td>
 <td>
 <select name="title" size="1">
 <option>Mr</option>
@@ -314,27 +314,27 @@ for ($i=0; $i<20; $i++)
 </td>
 </tr>
 <tr>
-<td align="right">First Name</td>
+<td>First Name</td>
 <td><input id="reffirst" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Last Name</td>
+<td>Last Name</td>
 <td><input id="reflast" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Email Id</td>
+<td>Email Id</td>
 <td><input id="refemail" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Contact Number</td>
+<td>Contact Number</td>
 <td><input id="refcontact" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td align="right">Referal Type</td>
+<td>Referal Type</td>
 <td>
 <select name="reftype" size="1">
 <option>Employer</option>

@@ -13,12 +13,7 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/datepicker.css" type="text/css" />
 </head>
 <body>
-<div id="container" class="frame"> <!--The main container which should be in the middle-->
 <div id="header">
-<table>
-<tr>
-<td><img src="" alt="Project Logo" height="100px" width="100px" /></td>
-<td><h1>JOB SEEKERS</h1></td>
-</tr>
-</table>
+<img src="<?php echo base_url() ?>images/logo.png" alt="Project Logo" />
 </div><!--End of the header-->
+<div id="container" class="frame"> <!--The main container which should be in the middle-->
