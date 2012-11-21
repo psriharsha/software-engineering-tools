@@ -30,7 +30,7 @@ class Login extends CI_Controller {
 				);
 				
 				$this->session->set_userdata($data);
-				redirect(base_url()."index.php/employee/home");
+				redirect(base_url()."index.php/employee/search_Control");
 			}
 			else {
 				$this->index();
@@ -48,14 +48,14 @@ class Login extends CI_Controller {
 		$data = array(
 			'forename1' => $this->input->post('name'),
 			'surname' => $this->input->post('surname'),
-			'username' => $this->input->post('email'),
+			'username' => $this->input->post('username'),
 			'password' => $this->input->post('password')
 		);
 		
 		$this->load->model('register');
 		$this->register->createJobseeker($data);
 			
-		$this->session->set_userdata($this->input->post('email'));
+		$this->session->set_userdata($this->input->post('username'));
 		redirect(base_url()."index.php/jobseeker/home");
 	}
 }

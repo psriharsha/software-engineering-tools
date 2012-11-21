@@ -1,8 +1,7 @@
 
 <div id="search">
-
-<h1>EMPLOYEE SEARCH FORM</h1>
-<br>
+<fieldset>
+<legend><h2>Search form</h2></legend>
 <form action ="<?php echo base_url()?>index.php/employee/search_Control/searchJobseeker" method="post">
 <table>
 	<tr>
@@ -33,33 +32,14 @@
 		<th>employment_levels</th>
 		<th><?php echo form_dropdown('employmentLevels', $dropdown_employmentLevel);?></th>
 	</tr>
+	<tr>
+		<th></th>
+		<th><input type="submit" value="SUBMIT"></th>
+	</tr>
 
 </table>
-<input type="submit" value="confirm">
 </form>
 
-<br>
-
-<h1>RESULTS</h1>
-
-<table border="1">
-		<tr>
-			<th>Name</th><th>Surname</th><th>Prefered Job</th>
-		</tr>
-<?php if($records != "No records were returned") : foreach ($records as $rows) :?>
-
-											<tr>
-												<th><?php echo $name = $rows->forename1; ?></th>
-												<th><?php echo $surname = $rows->surname;?></th>
-												<th><?php echo $prefJob = $rows->jobTitle;?></th>
-											</tr>
-												<?php endforeach;?>
-		
-	<?php else : ?>
-		<?php print("No records were returned");?>
-			
-<?php endif;?>
-
-</table>
-
+</fieldset>
 </div>
+
