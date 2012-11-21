@@ -2,18 +2,22 @@
 /* CSS Document */
 
 body{
-	background:#999;
+	background:url(../images/bgimg.png);
 	color:#FFF;
 }
 a:link{
 	text-decoration:none;
-	color:#000;
 }
-a:hover{
+a:visited{
 	color:#FFF;
 }
 #container{
 	background:#CCC;
+	width:900px;
+	margin:auto;
+}
+
+#header{
 	width:900px;
 	margin:auto;
 }
@@ -23,7 +27,6 @@ h1{
 }
 
 #menu ul li{
-	background:#099;
 	display:inline;
 	padding-left:2.5em;
 	padding-right:2.5em;
@@ -35,6 +38,7 @@ h1{
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	font-weight:bold;
+	margin:0;
 }
 
 .round{
@@ -43,14 +47,15 @@ h1{
 }
 
 #menu ul li:hover{
-	background:#066;
+	background:#FFF;
+	color:#5b6887;
 }
 
 #menu ul{
-	background:#099;
 	padding-top:0.5em;
 	padding-bottom:0.5em;
 	width:98%;
+	background:#5b6887;
 }
 
 #header{
@@ -85,7 +90,7 @@ h1{
 }
 
 .accordian ul li:nth-child(odd){
-	background:#0CF;
+	background:#939bad;
 	border-top-style:solid;
 	padding:7px;
 	text-align:center;
@@ -101,6 +106,9 @@ h1{
 	color:#000;
 }
 
+.accordian ul li table td{
+	display:block;
+	}
 .frame{
 	-moz-box-shadow: 10px 10px 5px #888;
 -webkit-box-shadow: 10px 10px 5px #888;
@@ -208,10 +216,16 @@ input[type=text],input[type=password]{
 	}
 
 .accTable{
-	width:60%;
+	width:80%;
 	margin:auto;
 }
 
-input[type="text"],select{
+input[type="text"]{
 	padding:0.5em 0.5em 0.5em 0.5em;
+	width:80%;
+}
+
+select{
+	padding:0.5em 0.5em 0.5em 0.5em;
+	width:82.5%;
 }
