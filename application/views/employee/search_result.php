@@ -15,7 +15,7 @@
 												<td><?php echo $name = $rows->forename1; ?></td>
 												<td><?php echo $surname = $rows->surname;?></td>
 												<td><?php echo $prefJob = $rows->jobTitle;?></td>
-												<td><?php echo anchor(base_url()."index.php/employee/ViewCV".$idUser,'select');?></td>
+												<td><?php echo anchor(base_url()."index.php/employee/ViewCV/".$idUser,'select');?></td>
 											</tr>
 												<?php endforeach;?>
 		
