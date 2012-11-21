@@ -2,17 +2,19 @@
 
 class search_Control extends CI_Controller {
 
+	//load dropdown from database and display
 	public function index()
 	{
 		$this->load->model('dropdown');	
-		$send['content'] = "employee/search_View";
-		$send['content2'] = "employee/content2";
+		$send['content'] = "employer/search_View";
+		$send['content2'] = "employer/content2";
 		$send['dropdown_education'] = $this->dropdown->dropdown_education();
 		$send['dropdown_job'] = $this->dropdown->dropdown_job();
 		$send['dropdown_employmentLevel'] = $this->dropdown->dropdown_employmentLevel();
-		$this->load->view('employee/template',$send);
+		$this->load->view('employer/template',$send);
 	}
 	
+	//search for jobseekers
 	public function searchJobseeker(){
 		$this->load->model('search_Model');	
 		$this->load->model('dropdown');
@@ -26,13 +28,13 @@ class search_Control extends CI_Controller {
 				$send['records'] = $data;	
 			}
 
-		$send['content'] = "employee/search_View";
-		$send['content2'] = "employee/search_result";
+		$send['content'] = "employer/search_View";
+		$send['content2'] = "employer/search_result";
 		$send['dropdown_education'] = $this->dropdown->dropdown_education();
 		$send['dropdown_job'] = $this->dropdown->dropdown_job();
 		$send['dropdown_employmentLevel'] = $this->dropdown->dropdown_employmentLevel();
 
-		$this->load->view('employee/template',$send);
+		$this->load->view('employer/template',$send);
 		
 	}
 	

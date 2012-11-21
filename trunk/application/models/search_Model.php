@@ -1,7 +1,7 @@
 <?php
 class search_Model extends CI_Model{
 	
-	
+	//get jobseekers which matched up with all the passing values
 	public function getJobSeeker()	{
 			
 		$skill = $this->input->post('skill');
@@ -37,7 +37,7 @@ class search_Model extends CI_Model{
 		return $data;
 	}
 	
-	
+	//get jobseekers by matching with some passing values
 	public function getAllJobseeker(){
 		
 		$skill = $this->input->post('skill');

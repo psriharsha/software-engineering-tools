@@ -7,6 +7,9 @@ class Login extends CI_Controller {
 		$this->load->view('template',$send);
 	}
 	
+	/*check type of users and redirected to the page 
+	 * seesion set: username, type, is_logged_in
+	 */ 
 	function validate_credentials(){
 		$this->load->model('login_model');
 		$query = $this->login_model->validate_jobseeker();
@@ -22,7 +25,7 @@ class Login extends CI_Controller {
 			redirect(base_url()."index.php/jobseeker/home");
 		}
 		else{
-			$query = $this->login_model->validate_employee();
+			$query = $this->login_model->validate_employer();
 			if($query)
 			{
 				$data = array(
@@ -32,7 +35,7 @@ class Login extends CI_Controller {
 				);
 				
 				$this->session->set_userdata($data);
-				redirect(base_url()."index.php/employee/search_Control");
+				redirect(base_url()."index.php/employer/search_Control");
 			}
 			else {
 				$this->index();
@@ -40,12 +43,16 @@ class Login extends CI_Controller {
 		}
 	}
 	
+	//link to registration form
 	function signup(){
 		
 		$send['content'] = "register";
 		$this->load->view('template',$send);
 	}
 
+	/* check validate for each value
+	 * insert to persons database and redirected to jobseeker/home
+	 */
 	function register(){
 		
 		$this->load->library('form_validation');
@@ -69,8 +76,22 @@ class Login extends CI_Controller {
 		
 			$this->load->model('register');
 			$this->register->createJobseeker($data);
-			$this->session->set_userdata($this->input->post('username'));
+			
+			$data = array(
+				'username' => $this->input->post('username'),
+				'type' => "1",
+				'is_logged_in' => true
+			);
+			
+			$this->session->set_userdata($data);
 			redirect(base_url()."index.php/jobseeker/home");
 			}
+	}
+	
+	//logout
+	function logout(){
+		$this->session->sess_destroy();
+		$send['content'] = "login_view";
+		$this->load->view('template',$send);
 	}
 }

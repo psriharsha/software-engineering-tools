@@ -2,7 +2,7 @@
 <div id="search">
 <fieldset>
 <legend><h2>Search form</h2></legend>
-<form action ="<?php echo base_url()?>index.php/employee/search_Control/searchJobseeker" method="post">
+<form action ="<?php echo base_url()?>index.php/employer/search_Control/searchJobseeker" method="post">
 	<fieldset>
 	<legend><h3>Educational</h3></legend>
 	<table id="education" width="600">
@@ -23,10 +23,6 @@
 	<tr>
 		<td>skill:</td>
 		<td><input type="text" name="skill" value = ""></td> 
-	</tr>
-	<tr>
-		<td>experience</td>
-		<td></td> 
 	</tr>
 	<tr>
 		<td>job title</td>
