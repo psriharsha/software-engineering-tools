@@ -75,6 +75,36 @@ for ($i=0; $i<20; $i++)
 </tr>
 <tr>
 <td colspan="2" align="center" style="padding-top: 30px"><span class="sendData" id="perform">Submit</span>
+<div id="temp"></div>
+<script type="text/javascript">
+$('#perform').click(function(){
+	alert("hi");
+	var data = {
+			add1 : $('#add1').val(),
+			add2 : $('#add2').val(),
+			town : $('#town').val(),
+			postcode : $('#postcode').val(),
+			female : $('#female').val(),
+			perurl : $('#perurl').val(),
+			authwork : $('#authwork').val(),
+			noofgcse : $('#noofgcse').val(),
+			gcseeng : $('#gcseeng').val(),
+			gcsemath : $('#gcsemath').val(),
+			stusta : $('#stusta').val()
+	}
+	send(data);
+});
+function send(dataSend){
+	$.ajax({
+		url: "<?php echo base_url()?>/index.php/jobseeker/Profile/savePersonal",
+		type: 'POST',
+		data: dataSend,
+		success: function(msg){
+			$('#temp').html(msg);
+		}
+	});
+}
+</script>
 </td>
 </tr>
 </table>
