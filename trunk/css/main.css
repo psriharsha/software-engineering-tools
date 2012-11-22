@@ -204,9 +204,18 @@ h2{
 
 input[type=text],input[type=password]{
 	display: block;
-	margin: 1em 2em 1em;
+	margin: 1em 0em 1em;
 	padding:0.5em 0.5em 0.5em 0.5em;
-	width: 200px;
+	width: 80.2%;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+}
+
+#login input[type=text],input[type=password]{
+	display: block;
+	margin: 1em 1.5em 1em;
+	padding:0.5em 0.5em 0.5em 0.5em;
+	width: 80.2%;
 	-moz-border-radius: 1px;
 	-webkit-border-radius: 1px;
 }

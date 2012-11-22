@@ -4,102 +4,77 @@
 <li id="acc1c">
 <table class="accTable" cellspacing="10px">
 <tr>
-<td>Title</td>
-<td>
-<select name="title" size="1">
-<option>Mr</option>
-<option>Mrs</option>
-</select>
-</td>
-</tr>
-<tr>
-<td>Forename 1</td>
-<td><input name="forename1" type="text" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td>Forename 2</td>
-<td><input name="forename2" type="text" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td>Surname</td>
-<td><input name="surname" type="text" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td>Date of Birth</td>
-<td><input class="inputDate" id="inputDate" value="19/11/2012" />
-</td>
-</tr>
-<tr>
 <td>Address Line 1</td>
-<td><input name="add1" type="text" size="20" maxlength="20" />
+<td><input id="add1" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Address Line 2</td>
-<td><input name="add2" type="text" size="20" maxlength="20" />
+<td><input id="add2" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Town</td>
-<td><input name="town" type="text" size="20" maxlength="20" />
+<td><input id="town" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Postcode</td>
-<td><input name="postcode" type="text" size="20" maxlength="20" />
+<td><input id="postcode" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Personal URL</td>
-<td><input name="perurl" type="text" size="20" maxlength="20" />
+<td><input id="perurl" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Gender</td>
 <td>
-<select name="female" size="1">
-<option>Male</option>
-<option>Female</option>
+<select id="female" size="1">
+<option value="male">Male</option>
+<option value="female">Female</option>
 </select>
 </td>
 </tr>
 <tr>
 <td>Work Statement Issued by</td>
-<td><input name="authwork" type="text" size="20" maxlength="20" />
+<td><input id="authwork" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Number of GCSEs passed</td>
 <td>
-<select name="noofgcse">
+<select id="noofgcse">
 <?php 
 for ($i=0; $i<20; $i++)
-	echo "<option>".($i+1)."</option>";
+	echo "<option value= \"".$i."\">".($i+1)."</option>";
 ?>
 </select>
 </td>
 </tr>
 <tr>
 <td>GCSE English Grade</td>
-<td><input name="gcseeng" type="text" size="20" maxlength="20" />
+<td><input id="gcseeng" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>GCSE Math Grade</td>
-<td><input name="gcsemath" type="text" size="20" maxlength="20" />
+<td><input id="gcsemath" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Current Student Status</td>
 <td>
-<select name="stusta">
+<select id="stusta">
 <option>Part Time</option>
 <option>Full Time</option>
 <option>Not a Student</option>
 </select>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center" style="padding-top: 30px"><span class="sendData" id="perform">Submit</span>
 </td>
 </tr>
 </table>
