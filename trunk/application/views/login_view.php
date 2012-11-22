@@ -1,6 +1,7 @@
-<div id="login">
-<h2>Login</h2>
 
+<div id="login">
+
+<h2>Login</h2>
 <?php 
 	
 	echo form_open(base_url()."index.php/login/validate_credentials");
@@ -11,6 +12,5 @@
 	echo anchor(base_url()."index.php/login/signup",'Create Account');
 	
 	?>
-
 
 </div>

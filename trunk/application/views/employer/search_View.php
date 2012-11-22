@@ -7,11 +7,11 @@
 	<legend><h3>Educational</h3></legend>
 	<table id="education" width="600">
 	<tr>
-		<td>education level:</td>
+		<td><h5>education level:</h5></td>
 		<td><?php echo form_dropdown('educationLevel', $dropdown_education);?></th>
 	</tr>
 	<tr>
-		<td>qualification type</td>
+		<td><h5>qualification type</h5></td>
 		<td><input type="text" name="qualificationType" value = ""></td>
 	</tr>
 	</table>
@@ -21,15 +21,15 @@
 	<legend><h3>Qualification</h3></legend>
 	<table id="qualification" width="550">
 	<tr>
-		<td>skill:</td>
+		<td><h5>skill:</h5></td>
 		<td><input type="text" name="skill" value = ""></td> 
 	</tr>
 	<tr>
-		<td>job title</td>
+		<td><h5>job title</h5></td>
 		<td><?php echo form_dropdown('jobTitle', $dropdown_job);?></td>
 	</tr>
 	<tr>
-		<td>employment_levels</td>
+		<td><h5>employment_levels</h5></td>
 		<td><?php echo form_dropdown('employmentLevels', $dropdown_employmentLevel);?></td>
 	</tr>
 	</table>

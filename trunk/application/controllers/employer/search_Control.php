@@ -2,6 +2,28 @@
 
 class search_Control extends CI_Controller {
 
+	
+	//This makes the function 'is logged in' a constructor, so it runs every time
+	// a function from this class is called
+	public function __construct()
+	{
+	parent::__construct();
+	$this->is_logged_in();
+	}
+	
+	//This function checks the session data to make sure that the user is logged in
+	public function is_logged_in()
+	{
+	$is_logged_in = $this->session->userdata('is_logged_in');
+	if(!isset($is_logged_in) || $is_logged_in!==true)
+		{
+		echo 'You don\'t have permission to access that page, please <a href="' . base_url() . 'index.php/">Log In</a>';
+		die();
+		}
+	}
+	
+	
+	
 	//load dropdown from database and display
 	public function index()
 	{

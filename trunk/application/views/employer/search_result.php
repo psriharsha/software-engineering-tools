@@ -7,20 +7,20 @@
 
 <table border="1" width="600">
 		<tr>
-			<td>Name</td><td>Surname</td><td>Prefered Job</td>
+			<th><h3>Name</h3></th><th><h3>Surname</h3></th><th><h3>Preferred Job</h3></th><th></th>
 		</tr>
 <?php if($records != "No records were returned") : foreach ($records as $rows) :?>
 												<?php $idUser = $rows->idUser;?>
 											<tr>
-												<td><?php echo $name = $rows->forename1; ?></td>
-												<td><?php echo $surname = $rows->surname;?></td>
-												<td><?php echo $prefJob = $rows->jobTitle;?></td>
-												<td><?php echo anchor(base_url()."index.php/employer/ViewCV/".$idUser,'select');?></td>
+												<th><h5><?php echo $name = $rows->forename1; ?></h5></th>
+												<th><h5><?php echo $surname = $rows->surname;?></h5></th>
+												<th><h5><?php echo $prefJob = $rows->jobTitle;?></h5></th>
+												<th><?php echo anchor(base_url()."index.php/employer/ViewCV/".$idUser,'select');?></th>
 											</tr>
 												<?php endforeach;?>
 		
 	<?php else : ?>
-		<?php print("No records were returned");?>
+		<h2><?php print("No records were returned");?></h2>
 			
 <?php endif;?>
 
