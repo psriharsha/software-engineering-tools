@@ -5,8 +5,8 @@ $(document).ready(function(){
 	var initial = true;
 	var curr = "acc1";
 
-	$('#perform').click(function(){
-		var data = "{add1:'"+$('#add1').val()+"',";
+	
+		/*var data = "{add1:'"+$('#add1').val()+"',";
 		data += "add2:'"+$('#add2').val()+"',";
 		data += "town:'"+$('#town').val()+"',";
 		data += "postcode:'"+$('#postcode').val()+"',";
@@ -19,7 +19,7 @@ $(document).ready(function(){
 		data += "stusta:'"+$('#stusta').val()+"'}";
 		doit(data);
 	});
-	
+	*/
 	
 	
 	$('#menu ul li').click(function(){
