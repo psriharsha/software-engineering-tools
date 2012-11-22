@@ -91,7 +91,6 @@ class Login extends CI_Controller {
 	//logout
 	function logout(){
 		$this->session->sess_destroy();
-		$send['content'] = "login_view";
-		$this->load->view('template',$send);
+		redirect(base_url()."index.php");
 	}
 }
