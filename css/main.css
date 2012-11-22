@@ -95,8 +95,9 @@ h1{
 	border-top-style:solid;
 	padding:7px;
 	text-align:center;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
 	cursor:pointer;
 }
 
