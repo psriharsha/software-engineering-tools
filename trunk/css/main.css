@@ -221,7 +221,10 @@ input[type=text],input[type=password]{
 	-webkit-border-radius: 1px;
 }
 
-input[type=submit]{
+input[type=submit], .sendData{
+	background:#ECECEC;
+	font-family:Verdana, Geneva, sans-serif;
+	cursor: pointer;
     color :#9299ab;
     border: none;
     padding: 5px;
@@ -233,7 +236,7 @@ input[type=submit]{
 		
 }
 
-input[type=submit]:hover{
+input[type=submit]:hover, .sendData:hover{
     background:#596387;
 }
 
@@ -279,12 +282,6 @@ input[type=submit]:hover{
 	margin: 0 auto 0;
 }
 
-.sendData{
-	padding: 0.5em 0.5em 0.5em 0.5em;
-	background:#0CF;
-	color:#FFF;
-
-	}
 
 .accTable{
 	width:80%;
