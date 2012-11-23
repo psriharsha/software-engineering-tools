@@ -39,32 +39,4 @@ $(document).ready(function(){
 	});
 	
 	
-	//Date picker start
-	$('#inputDate').DatePicker({
-		format:'m/d/Y',
-		date: $('#inputDate').val(),
-		current: $('#inputDate').val(),
-		starts: 1,
-		position: 'r',
-		onBeforeShow: function(){
-			$('#inputDate').DatePickerSetDate($('#inputDate').val(), true);
-		},
-		onChange: function(formated, dates){
-			$('#inputDate').val(formated);
-				$('#inputDate').DatePickerHide();
-		}
-	});
-	//Date picker Ends
-	function doit(bata){
-		alert(bata);
-		$.ajax({
-			url: 'localhost/jobsearch/index.php/jobseeker/Profile/savePersonal',
-	         data: bata,
-	         dataType: 'text',
-	         type: 'POST',
-	         success: function(output,ding,dong) {
-	                      alert(output+">>>>"+ding+"<<<<<"+dong);
-	                  }
-		}).fail(function() { alert("error"); });
-	}
 });

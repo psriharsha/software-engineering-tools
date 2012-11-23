@@ -2,7 +2,7 @@
 <ul>
 <li id="acc1">Personal Details</li>
 <li id="acc1c">
-<table class="accTable" cellspacing="10px">
+<table class="accTable" cellspacing="10px" id="personalTable">
 <tr>
 <td>Address Line 1</td>
 <td><input id="add1" type="text" size="20" maxlength="20" />
@@ -47,8 +47,8 @@
 <td>
 <select id="noofgcse">
 <?php 
-for ($i=0; $i<20; $i++)
-	echo "<option value= \"".$i."\">".($i+1)."</option>";
+for ($i=1; $i<=20; $i++)
+	echo "<option value= \"".$i."\">".($i)."</option>";
 ?>
 </select>
 </td>
@@ -75,10 +75,12 @@ for ($i=0; $i<20; $i++)
 </tr>
 <tr>
 <td colspan="2" align="center" style="padding-top: 30px"><span class="sendData" id="perform">Submit</span>
-<div id="temp"></div>
+</td>
+</tr>
+</table>
+<div id="temp1"></div>
 <script type="text/javascript">
 $('#perform').click(function(){
-	alert("hi");
 	var data = {
 			add1 : $('#add1').val(),
 			add2 : $('#add2').val(),
@@ -100,81 +102,115 @@ function send(dataSend){
 		type: 'POST',
 		data: dataSend,
 		success: function(msg){
-			$('#temp').html(msg);
+			$('#temp1').html(msg);
+			$('#personalTable').slideUp("slow");
 		}
 	});
 }
 </script>
-</td>
-</tr>
-</table>
 </li>
 <li id="acc2">Contact Details</li>										<!--  Accordian 2  -->
 <li id="acc2c">
-<table class="accTable" cellspacing="10px">
+<table class="accTable" cellspacing="10px" id="contactTable">
 <tr>
 <td>Alternate Mail</td>
-<td><input name="altmail" type="text" size="20" maxlength="20" />
+<td><input id="altmail" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Mobile Number</td>
-<td><input name="mobile" type="text" size="20" maxlength="20" />
+<td><input id="mobile" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Landline Number</td>
-<td><input name="land" type="text" size="20" maxlength="20" />
+<td><input id="land" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Contact Preference</td>
 <td>
-<select name="conpre" size="1">
-<option>Primary E-mail</option>
-<option>Mobile</option>
-<option>Landline</option>
+<select id="conpre" size="1">
+<option value="Email1">Primary E-mail</option>
+<option value = "Email2">Alternate E-mail</option>
+<option value = "Mobile">Mobile</option>
+<option value = "Landline">Mobile</option>
 </select>
 </td>
 </tr>
+<tr>
+<td colspan="2" align="center" style="padding-top: 30px"><span class="sendData" id="conform">Submit</span>
+</td>
+</tr>
 </table>
+<div id="temp2"></div>
+<script type = "text/javascript">
+$('#conform').click(function(){
+	var data = {
+			altmail : $('#altmail').val(),
+			mobile : $('#mobile').val(),
+			land : $('#land').val(),
+			conpre : $('#conpre').val()
+	};
+	$.ajax({
+		url: "<?php echo base_url()?>index.php/jobseeker/Profile/saveContact",
+		type: 'POST',
+		data: data,
+		success: function(msg){
+			$('#temp2').html(msg);
+			$('#contactTable').slideUp("slow");
+		}
+	});
+});
+</script>
 </li>																		<!--  Accordian 2  -->
 <li id="acc3">Educational Qualifications</li>								<!-- Educational Qualifications -->
 <li id="acc3c">
-<table class="accTable" cellspacing="10px">
+<table class="accTable" cellspacing="10px" id="eduTable">
 <tr>
 <td>Qualification</td>
-<td><input name="qual" type="text" size="20" maxlength="20" />
+<td><input id="qual" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Course</td>
-<td><input name="course" type="text" size="20" maxlength="20" />
+<td><input id="course" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Educational Level</td>
-<td><input name="edulevel" type="text" size="20" maxlength="20" />
+<td><select id="eduLevel">
+<option value = "1">General Degree</option>
+<option value = "2">Sixth-form or equivalent secondary education HNC</option>
+<option value = "3">BA/BSc Degree or Equivalent</option>
+<option value = "4">MA/MSc Degree or Equivalent</option>
+<option value = "5">PhD or Equivalent Doctorate</option>
+</select>
 </td>
 </tr>
 <tr>
 <td>Course Type</td>
-<td><input name="coursetype" type="text" size="20" maxlength="20" />
+<td>
+<select id="vocational">
+<option value = "0">Vocational</option>
+<option value = "1">Academic</option>
+<option value = "NULL">Not Sure</option>
+</select>
 </td>
 </tr>
 <tr>
 <td>Specialization</td>
-<td><input name="coursetype" type="text" size="20" maxlength="20" />
+<td><input id="spec" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Institution Name</td>
-<td><input name="insti" type="text" size="20" maxlength="20" />
+<td><input id="insti" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Country</td>
-<td><input name="country" type="text" size="20" maxlength="20" />
+<td><input id="country" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
@@ -191,21 +227,48 @@ function send(dataSend){
 <td>Verified</td>
 <td>
 <select id="veri">
-<option>Yes</option>
-<option>No</option>
+<option value = "0">Yes</option>
+<option value = "1">No</option>
 </select>
 </td>
 </tr>
 <tr>
 <td>Verified By</td>
-<td><input id="veri" type="text" size="20" maxlength="20" />
+<td><input id="veriby" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center" style="padding-top: 30px"><span class="sendData">Submit</span>
+<td colspan="2" align="center" style="padding-top: 30px"><span class="sendData" id="eduform">Submit</span>
 </td>
 </tr>
 </table>
+<div id="temp3"></div>
+<script type="text/javascript">
+$('#eduform').click(function(){
+	var data = {
+			qualificationType : $('#qual').val(),
+			courseName : $('#course').val(),
+			EducationLevels_idEducationLevel : $('#edulevel').val(),
+			vocational : $('#vocational').val(),
+			nameOfInstitutions : $('#insti').val(),
+			mainSubject : $('#spec').val(),
+			country : $('#country').val(),
+			yearObtained : $('#year').val(),
+			result : $('#grade').val(),
+			verified : $('#veri').val(),
+			howVerified : $('#veriby').val()
+	};
+	$.ajax({
+		url: "<?php echo base_url()?>index.php/jobseeker/Profile/saveEdu",
+		type: 'POST',
+		data: data,
+		success: function(msg){
+			$('#temp3').html(msg);
+			$('#eduTable').slideUp("slow");
+		}
+	});
+});
+</script>
 </li>
 <li id="acc4">Professional Qualifications</li>
 <li id="acc4c">
