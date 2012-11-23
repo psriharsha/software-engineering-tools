@@ -11,6 +11,8 @@ class Login extends CI_Controller {
 	 * seesion set: userId, username, type, is_logged_in
 	 */ 
 	function validate_credentials(){
+		
+		
 		$this->load->model('login_model');
 		$query = $this->login_model->validate_jobseeker();
 		
