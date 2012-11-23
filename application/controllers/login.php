@@ -8,31 +8,38 @@ class Login extends CI_Controller {
 	}
 	
 	/*check type of users and redirected to the page 
-	 * seesion set: username, type, is_logged_in
+	 * seesion set: userId, username, type, is_logged_in
 	 */ 
 	function validate_credentials(){
 		$this->load->model('login_model');
 		$query = $this->login_model->validate_jobseeker();
-		if($query){
-			
-			$data = array(
-				'username' => $this->input->post('username'),
-				'type' =>"1",
-				'is_logged_in' => true
-			);
+		
+		if($query != array()){				
+				foreach ($query as $rows){
+					
+					$data = array(
+						'user_id' => $rows->idUser,
+						'username' => $rows->username,
+						'type' => "1",
+						'is_logged_in' => true
+					);
+				}		
 			
 			$this->session->set_userdata($data);
 			redirect(base_url()."index.php/jobseeker/home");
 		}
 		else{
-			$query = $this->login_model->validate_employer();
-			if($query)
-			{
-				$data = array(
-				'username' => $this->input->post('username'),
-				'type' => "2",
-				'is_logged_in' => true
-				);
+				$query = $this->login_model->validate_employer();
+				if($query != array()){				
+					foreach ($query as $rows){
+					
+						$data = array(
+							'user_id' => $rows->employeeId,
+							'username' => $rows->username,
+							'type' => "2",
+							'is_logged_in' => true
+						);
+				}		
 				
 				$this->session->set_userdata($data);
 				redirect(base_url()."index.php/employer/search_Control");
@@ -70,7 +77,7 @@ class Login extends CI_Controller {
 			$data = array(
 				'forename1' => $this->input->post('name'),
 				'surname' => $this->input->post('surname'),
-				'username' => $this->input->post('username'),
+				'username' => strtolower($this->input->post('username')),
 				'password' => $this->input->post('password')
 			);
 		
