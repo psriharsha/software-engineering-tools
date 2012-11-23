@@ -9,8 +9,13 @@ class Login_Model extends CI_Model{
 		
 		if($query->num_rows == 1)
 		{
-			return true;
+			foreach($query->result() as $rows)
+			{
+				$data[] = $rows;
+			}
 		}
+		else { $data = array();}
+		return $data;
 	}
 	//check for employer login
 	public function validate_employer(){
@@ -18,11 +23,15 @@ class Login_Model extends CI_Model{
 		$this->db->where('password',$this->input->post('password'));
 		$query = $this->db->get('employee');
 		
-		if($query->num_rows == 1)
-		{
-			return true;
-		}
+			if($query->num_rows == 1)
+			{
+				foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+			}
+			else { $data = array();}
+		return $data;
+		
 	}
-	
-	
 }
