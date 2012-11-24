@@ -60,12 +60,83 @@ class Profile extends CI_Controller {
 		$data['verified'] = $this->input->post('verified');
 		$data['howVerified'] = $this->input->post('howVerified');
 		$this->load->model('Register');
-		$final = $this->Register->insEdu($data);
-		/*if($res)
+		$res = $this->Register->insEdu($data);
+		if($res)
 			$final = "Contact Information Saved";
 		else
-			$final = "Error";*/
+			$final = "Error";
 		echo $final;
+	}
+	
+	public function savePro(){
+		$data['qualificationName'] = $this->input->post('qualificationName');
+		$data['Sectors_idSectors'] = $this->input->post('Sectors_idSectors');
+		$data['otherSector'] = $this->input->post('otherSector');
+		$data['awardingBody'] = $this->input->post('awardingBody');
+		$data['yearObtained'] = $this->input->post('yearObtained');
+		$data['result'] = $this->input->post('result');
+		$data['verified'] = $this->input->post('verified');
+		$data['howVerified'] = $this->input->post('howVerified');
+		$this->load->model('Register');
+		$res = $this->Register->insPro($data);
+		if($res)
+			$final = "Professional Qualification Saved";
+		else
+			$final = "Error";
+		echo $final;
+	}
+	
+	public function saveExp(){
+		$data['JobTitles_idJobTitles'] = $this->input->post('JobTitles_idJobTitles');
+		$data['otherJobTitle'] = $this->input->post('otherJobTitle');
+		$data['EmploymentLevels_idLevelsOfEmployment'] = $this->input->post('EmploymentLevels_idLevelsOfEmployment');
+		$data['employerName'] = $this->input->post('employerName');
+		$data['dateStarted'] = $this->input->post('dateStarted');
+		$data['dateFinished'] = $this->input->post('dateFinished');
+		$data['keyDuties'] = $this->input->post('keyDuties');
+		$data['howVerified'] = $this->input->post('howVerified');
+		$data['verified'] = $this->input->post('verified');
+		$this->load->model('Register');
+		$res = $this->Register->insExp($data);
+		if($res)
+			$final = "Experiences Saved";
+		else
+			$final = "Error";
+		echo $final;
+	}
+	
+	public function saveRef(){
+		$data['title'] = $this->input->post('title');
+		$data['forename'] = $this->input->post('forename');
+		$data['surname'] = $this->input->post('surname');
+		$data['email'] = $this->input->post('email');
+		$data['contactPhone'] = $this->input->post('contactPhone');
+		$data['relationship'] = $this->input->post('relationship');
+		$this->load->model('Register');
+		$res = $this->Register->insRef($data);
+		if($res)
+			$final = "Experiences Saved";
+		else
+			$final = "Error";
+		echo $final;
+	}
+	
+	public function getData()
+	{
+		$data['what'] = $this->input->post('what');
+		$data['where'] = $this->input->post('where');
+		$this->load->model('Register');
+		$result = $this->Register->getInfo($data);
+		$res = "NULL";
+		if($result->num_rows()>0)
+		{
+			$res = "";
+			foreach($result->result() as $row)
+			{
+				$res .= $row->$data['what']."|";
+			}
+		}
+		echo $res;
 	}
 	
 }

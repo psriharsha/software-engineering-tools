@@ -3,18 +3,18 @@
 
 body{
 	background:url(../images/bgimg.png);
-	color:#FFF;
+	color:#000;
+	font-family: 'Sirin Stencil', cursive;
 }
-a:link{
+a{
 	text-decoration:none;
-}
-a:visited{
-	color:#FFF;
+	color: #FFFFFF;
 }
 #container{
-	background:#CCC;
+	background:#FFF;
 	width:900px;
 	margin:auto;
+	opacity: 0.9;
 }
 
 #header{
@@ -28,6 +28,7 @@ h1{
 
 #menu ul li{
 	display:inline;
+	color:#FFF;
 	padding-left:2.5em;
 	padding-right:2.5em;
 	padding-top:0.5em;
@@ -48,13 +49,12 @@ h1{
 
 #menu ul li:hover{
 	background:#858eb0;
-	color:#5b6887;
 }
 
 #menu ul{
 	padding-top:0.5em;
 	padding-bottom:0.5em;
-	width:98%;
+	width:95.59%;
 	background:#5b6887;
 }
 
@@ -68,16 +68,13 @@ h1{
 }
 
 #footer{
-	background:#099;
+	margin-top:10px;
+	background:#5b6887;
 	color:#FFF;
 	height:150px;
 	clear:both;
 }
 
-#menu ul{
-	margin:0px;
-	padding:10px;
-}
 
 .accordian ul{
 	margin:0px;
@@ -93,8 +90,10 @@ h1{
 .accordian ul li:nth-child(odd){
 	background:#939bad;
 	border-top-style:solid;
+	color:#FFF;
 	padding:7px;
 	text-align:center;
+	font-weight:bold;
 	-webkit-border-radius: 5px 5px 5px 5px;
 	-moz-border-radius: 5px 5px 5px 5px;
 	border-radius: 5px 5px 5px 5px;
@@ -186,26 +185,30 @@ box-shadow: 10px 5px 5px #161616;
 }
 
 #login{
-    
 	width:30%;
 	float:centre;
 	border: 1px solid #aeadad;
-	margin: 10px auto 50px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;	
     box-shadow: 5px 5px 5px #aeadad;
 }
 
+
 h2{
-	font-family:Georgia, "Times New Roman", Times, serif;
 	text-align: center;
-	color: #9299ab;
+	color: #5b6887;
 	padding: .25em;
 }
 
 input[type=text],input[type=password]{
 	display: block;
-	margin: 1em 0em 1em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left:auto;
+	margin-right:auto;
 	padding:0.5em 0.5em 0.5em 0.5em;
 	width: 80.2%;
 	-moz-border-radius: 1px;
@@ -262,7 +265,7 @@ input[type=submit]:hover, .sendData:hover{
 
 }
 
-#register a{
+#register a, #login a{
     background: #efefef;
     color: #9299ab;
     padding: .5em;
@@ -315,11 +318,13 @@ input[type=submit]:hover, .sendData:hover{
 
 h4{
     padding: .5em;
-    background: #099;
+	background:#5b6887;
+	color:#FFF;
     -moz-borser-radius: 4px;
 	-webkit-border-radius: 4px;
 	-moz-box-shadow: 0 1px 0 white;
 }
+
 
 h5{
     padding: 10px 25px 0;
@@ -341,6 +346,9 @@ select{
     font-size: 12px;
     color: #9299ab;
 }
-
+.postMessage{
+	background: #FF9;
+	text-align:center;
+}
 
 

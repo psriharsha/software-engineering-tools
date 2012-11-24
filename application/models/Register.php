@@ -24,7 +24,7 @@ class register extends CI_Model{
 		if($res == 1)
 			return true;
 		else
-			return true;
+			return false;
 	}
 	
 	public function updateContact($data){
@@ -37,7 +37,7 @@ class register extends CI_Model{
 		if($res == 1)
 			return true;
 		else
-			return true;
+			return false;
 	}
 	
 	public function insEdu($data){
@@ -59,7 +59,7 @@ class register extends CI_Model{
 )
 VALUES (
 NULL ,";
-$query .= "'".$this->session->userdata('username')."',";
+$query .= "".$this->session->userdata('user_id').",";
 $query .= "'".$data['qualificationType']."',";
 $query .= "'".$data['courseName']."',";
 $query .= "".$data['EducationLevels_idEducationLevel'].",";
@@ -71,7 +71,112 @@ $query .= "'".$data['yearObtained']."',";
 $query .= "'".$data['result']."',NULL,";
 $query .= "".$data['verified'].",";
 $query .= "'".$data['howVerified']."');";
-return $query;
+$res = $this->db->query($query);
+		if($res == 1)
+			return true;
+		else
+			return false;
 	}
+	
+	public function insPro($data){
+		$query = "INSERT INTO `jobsite`.`professional_qualifications` (
+`idProfessionalQualifications` ,
+`Persons_idUser` ,
+`qualificationName` ,
+`Sectors_idSectors` ,
+`otherSector` ,
+`awardingBody` ,
+`yearObtained` ,
+`result` ,
+`verified` ,
+`howVerified`
+)
+VALUES (
+NULL ,";
+		$query .= "".$this->session->userdata('user_id').",";
+		$query .= "'".$data['qualificationName']."',";
+		$query .= "".$data['Sectors_idSectors'].",";
+		$query .= "'".$data['otherSector']."',";
+		$query .= "'".$data['awardingBody']."',";
+		$query .= "'".$data['yearObtained']."',";
+		$query .= "'".$data['result']."',";
+		$query .= "".$data['verified'].",";
+		$query .= "'".$data['howVerified']."')";
+		$res = $this->db->query($query);
+		if($res == 1)
+			return true;
+		else
+			return false;
+	}
+	
+	public function insExp($data){
+		$query = "INSERT INTO `jobsite`.`experiences` (
+`idExperiences` ,
+`Persons_idUser` ,
+`JobTitles_idJobTitles` ,
+`otherJobTitle` ,
+`EmploymentLevels_idLevelsOfEmployment` ,
+`employerName` ,
+`dateStarted` ,
+`dateFinished` ,
+`keyDuties`,
+`verified` ,
+`howVerified`
+)
+VALUES (
+NULL ,";
+		$query .= "".$this->session->userdata('user_id').",";
+		$query .= "".$data['JobTitles_idJobTitles'].",";
+		$query .= "'".$data['otherJobTitle']."',";
+		$query .= "".$data['EmploymentLevels_idLevelsOfEmployment'].",";
+		$query .= "'".$data['employerName']."',";
+		$query .= "'".$data['dateStarted']."',";
+		$query .= "'".$data['dateFinished']."',";
+		$query .= "'".$data['keyDuties']."',";
+		$query .= "".$data['verified'].",";
+		$query .= "'".$data['howVerified']."')";
+		$res = $this->db->query($query);
+		if($res == 1)
+			return true;
+		else
+			return false;
+	}
+	
+	public function insRef($data){
+		$query = "INSERT INTO `jobsite`.`referees` (
+`idReferees` ,
+`Persons_idUser` ,
+`title` ,
+`forename` ,
+`surname` ,
+`email` ,
+`contactPhone` ,
+`relationship`
+)
+VALUES (
+NULL ,";
+		$query .= "".$this->session->userdata('user_id').",";
+		$query .= "'".$data['title']."',";
+		$query .= "'".$data['forename']."',";
+		$query .= "'".$data['surname']."',";
+		$query .= "'".$data['email']."',";
+		$query .= "'".$data['contactPhone']."',";
+		$query .= "'".$data['relationship']."')";
+		$res = $this->db->query($query);
+		if($res == 1)
+			return true;
+		else
+			return false;
+	}
+	
+	public function getInfo($data)
+	{
+		if($data['where'] == "persons")
+			$res = $this->db->get_where($data['where'],array('idUser'=>$this->session->userdata('user_id')));
+		else 
+			$res = $this->db->get_where($data['where'],array('Persons_idUser'=>$this->session->userdata('user_id')));
+		return $res;
+	}
+	
 	
 }

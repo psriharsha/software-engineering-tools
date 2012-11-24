@@ -1,7 +1,9 @@
 // JavaScript Document
 $(document).ready(function(){
 	$('.accordian ul li:nth-child(even)').hide();
+	$('.accTable').hide();
 	$('#acc1c').show();
+	getdata('#acc1');
 	var initial = true;
 	var curr = "acc1";
 
@@ -29,14 +31,18 @@ $(document).ready(function(){
 	
 	$('.accordian ul li').click(function(){
 		var id = $(this).attr('id');
-		if((id != curr)&&(id != "acc1" || initial == false)&& (id != "acc1c" && id != "acc2c" && id != "acc3c" && id != "acc4c" && id != "acc5c" && id != "acc6c")){
-			$('.accordian ul li:nth-child(even)').slideUp();	
+		if((id != curr)&&(id != "acc1" || initial == false)&& (id != "acc1c" && id != "acc2c" && id != "acc3c" && id != "acc4c" && id != "acc5c" && id != "acc6c"))
+		{
+			$('.accordian ul li:nth-child(even)').slideUp(1000);	
 		}
-		$('#'+id+'c').slideDown();
+		getdata(id);
+		$('#'+id+'c').slideDown(1000);
 		if(id != "acc1")
 		initial = false;
 		curr = id;
 	});
+	
+	
 	
 	
 });

@@ -1,6 +1,6 @@
 <div id="menu">
 <ul>
-<li>Home</li>
+<li><a href="<?php echo base_url(); ?>index.php/jobseeker/home">Home</a></li>
 <li><a href="<?php echo base_url(); ?>index.php/jobseeker/home/editcv">Details</a></li>
 <li><a href="<?php echo base_url(); ?>index.php/jobseeker/viewcv/viewer">View CV</a></li>
 <li></li>

@@ -11,6 +11,7 @@
     <script type="text/javascript" src="<?php echo base_url() ?>js/layout.js?ver=1.0.2"></script>
 <link href="<?php echo base_url() ?>css/main.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<?php echo base_url() ?>css/datepicker.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Sirin+Stencil' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div id="header">
