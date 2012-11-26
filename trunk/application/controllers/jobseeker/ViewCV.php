@@ -57,7 +57,7 @@ class viewCV extends CI_Controller {
 		$send['referees'] = $this->GetCV->GetReferees();
 		$send['content'] = "jobseeker/cvview";
 		// end of page info		
-		$html = $this->load->view('jobseeker/template', $send, true);
+		$html = $this->load->view('jobseeker/PDF_template', $send, true);
 		pdf_create($html, 'filename');
 	//	or
 	//	$data = pdf_create($html, '', false);
