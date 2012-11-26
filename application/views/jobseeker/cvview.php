@@ -18,7 +18,7 @@ $count = 0;
 foreach ($educationQuals as $r)
 {
 $count ++;
-echo '<h3>Qualification ' . $count . '</h3>';
+echo '<h3>Educational Qualification ' . $count . '</h3>';
 echo '<p>';
 echo 'Qualification Type: ' .  $r->qualificationType . '<br/>';
 echo 'Course Name: ' . $r->courseName . '<br/>';
@@ -33,6 +33,24 @@ else echo 'Verified: No<br/>';
 echo 'Verification Method: ' . $r->howVerified . '<br/>';
 echo '</p>';
 }
+
+echo '<h2>Professional Qualifications</h2>';
+$count = 0;
+foreach ($professionalQuals as $r)
+{
+$count ++;
+echo '<h3>Professional Qualification ' . $count . '</h3>';
+echo '<p>';
+echo 'Qualification Name: ' .  $r->qualificationName . '<br/>';
+echo 'Awarding Body: ' . $r->awardingBody . '<br/>';
+echo 'Year Obtained: ' . $r->yearObtained . '<br/>';
+echo 'Result: ' . $r->result . '<br/>';
+if ($r->verified == 1) echo 'Verified: Yes<br/>';
+else echo 'Verified: No<br/>';
+echo 'Verification Method: ' . $r->howVerified . '<br/>';
+echo '</p>';
+}
+
 echo '<h2>Work Experience</h2>';
 $count = 0;
 foreach ($experiences as $r)
@@ -47,6 +65,21 @@ echo 'Level of Employment: ' . $r->employmentLevel . '<br/>';
 echo 'Key Duties: ' . $r->keyDuties . '<br/>';
 echo 'Employer Name: ' . $r->employerName . '<br/>';
 
+echo '</p>';
+}
+
+echo '<h2>Skills</h2>';
+$count = 0;
+foreach ($skills as $r)
+{
+$count ++;
+echo '<h3>Skill ' . $count . '</h3>';
+echo '<p>';
+echo 'Skill Name: ' . $r->skillName . '<br/>';
+echo 'Skill Level: ' . $r->skillLevel . '<br/>';
+if ($r->verified == 1) echo 'Verified: Yes<br/>';
+else echo 'Verified: No<br/>';
+echo 'Verification Method: ' . $r->howVerified . '<br/>';
 echo '</p>';
 }
 
