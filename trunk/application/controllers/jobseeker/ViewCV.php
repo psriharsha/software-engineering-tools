@@ -37,6 +37,7 @@ class viewCV extends CI_Controller {
 		$send['professionalQuals'] = $this->GetCV->getProfessionalQuals();
 		$send['skills'] = $this->GetCV->getSkills();
 		$send['preferences'] = $this->GetCV->getPreferences();
+		$send['referees'] = $this->GetCV->GetReferees();
 		$send['content'] = "jobseeker/cvview";
 		$this->load->view('jobseeker/template',$send);
 		}

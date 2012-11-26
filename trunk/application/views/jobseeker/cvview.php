@@ -93,4 +93,15 @@ echo 'Desired Job Title ' . $count . ': ' . $r->jobTitle . '<br/>';
 echo '</p>';
 }
 
+echo '<h2>References</h2>';
+$count = 0;
+foreach ($referees as $r)
+{
+$count ++;
+echo '<p>';
+echo 'Referee ' . $count . ': ' . $r->title . ' ' . $r->forename . ' ' . $r->surname . '<br/>';
+echo 'Email: ' . $r->email . '<br/>';
+echo '</p>';
+}
+
 ?>
