@@ -41,4 +41,12 @@ class viewCV extends CI_Controller {
 		$send['content'] = "jobseeker/cvview";
 		$this->load->view('jobseeker/template',$send);
 		}
-}
+		
+	//Generates PDF
+	public function pdf_cv() {
+		$this->load->library('pdf');
+		$this->pdf->load_view('cvview');
+		$this->pdf->render();
+		$this->pdf->stream("cv.pdf");
+		}
+	
