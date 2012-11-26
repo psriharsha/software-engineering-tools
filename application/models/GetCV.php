@@ -95,7 +95,7 @@ class GetCV extends CI_Model{
 	
 	public function getReferees() {
 	$person = $this->session->userdata('user_id');
-	$this->db->select('referees.title, referees.forename, referees.surname, referees.email, referees.contactPhone, referees.Relationship, referees.permissionToContact, referees.permissionToStoreDetails, referees.verified, referees.howVerified');
+	$this->db->select('referees.title, referees.forename, referees.surname, referees.email, referees.contactPhone, referees.relationship, referees.permissionToContact, referees.permissionToStoreDetails, referees.verified, referees.howVerified');
 	$this->db->from('referees');
 	$this->db->join('persons', 'persons.idUser = referees.persons_idUser');
 	$this->db->where('persons.idUser', $person);
