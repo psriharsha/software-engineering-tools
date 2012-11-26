@@ -101,6 +101,14 @@ $count ++;
 echo '<p>';
 echo 'Referee ' . $count . ': ' . $r->title . ' ' . $r->forename . ' ' . $r->surname . '<br/>';
 echo 'Email: ' . $r->email . '<br/>';
+echo 'Telephone: ' . $r->contactPhone . '<br/>';
+echo 'Relationship: ' . $r->relationship . '<br/>';
+echo 'Permission to contact? ';
+if ($r->permissionToContact == 1) echo 'Yes<br/>';
+else echo 'No<br/>';
+echo 'Permission to store details? ';
+if ($r->permissionToStoreDetails == 1) echo 'Yes<br/>';
+else echo 'No<br/>';
 echo '</p>';
 }
 
