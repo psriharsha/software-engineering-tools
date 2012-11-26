@@ -37,6 +37,7 @@ class GetCV extends CI_Model{
 	$this->db->from('experiences');
 	$this->db->join('job_titles', 'experiences.JobTitles_idJobTitles = job_titles.idJobTitles');
 	$this->db->join('persons', 'persons.idUser = experiences.Persons_idUser');
+	$this->db->join('employment_levels', 'experiences.EmploymentLevels_idLevelsOfEmployment = employment_levels.idLevelsOfEmployment');
 	$this->db->where('persons.idUser', $person);
 	$query = $this->db->get();
 	if($query->num_rows() > 0) {
