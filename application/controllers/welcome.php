@@ -2,6 +2,24 @@
 
 class Welcome extends CI_Controller {
 
+	public function selectedClose()
+	{
+		if($this->session->userdata('type')==1){
+			redirect(base_url()."index.php/jobseeker/home");
+		}
+		else{
+			if($this->session->userdata('type') == 2){
+				redirect(base_url()."index.php/employer/search_Control");
+			}
+			else{
+				$send['content'] = "login_view";
+				$this->load->view('template',$send);
+			}
+		}
+	}
+	
+	
+	
 	//display about content
 	public function selectedAbout()
 	{

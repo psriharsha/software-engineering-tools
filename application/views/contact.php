@@ -1,5 +1,7 @@
 <div id="contact">
-
+	<div id="close">
+	<a href="<?php echo base_url();?>index.php/welcome/selectedClose"><img src="<?php echo base_url(); ?>images/popup-close.png" alt="close" /></a> 
+	</div>
 	<fieldset>
 		<legend><h4>Contact Us</h4></legend>
 		<table>
@@ -26,5 +28,5 @@
 		</table>
 	</fieldset>
 
-
+	
 </div>
