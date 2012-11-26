@@ -4,8 +4,9 @@ class empViewCV extends CI_Controller {
 
 public function _remap($UserID)
 {
-$send['UserID'] = $UserID;
-$this->load->view('employer/template', $send);
+$this->load->model('GetEmpCV');
+$send['person'] = $this->GetEmpCV->getPerson($UserID);
+$send['content'] = "jobseeker/cvview";
+$this->load->view('jobseeker/template',$send);
 }
-
 }
