@@ -43,6 +43,10 @@ echo '<p>';
 echo 'Job Title: ' . $r->jobTitle . '<br/>';
 echo 'Start Date: ' . $r->dateStarted . '<br/>';
 echo 'End Date: ' . $r->dateFinished . '<br/>';
+echo 'Level of Employment: ' . $r->employmentLevel . '<br/>';
+echo 'Key Duties: ' . $r->keyDuties . '<br/>';
+echo 'Employer Name: ' . $r->employerName . '<br/>';
+
 echo '</p>';
 }
 
