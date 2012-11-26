@@ -42,11 +42,26 @@ class viewCV extends CI_Controller {
 		$this->load->view('jobseeker/template',$send);
 		}
 		
-	//Generates PDF
+	//This function generates the CV as a PDF document using DOMPDF
 	public function pdf_cv() {
-		$this->load->library('pdf');
-		$this->pdf->load_view('cvview');
-		$this->pdf->render();
-		$this->pdf->stream("cv.pdf");
+		$this->load->helper(array('dompdf', 'file'));
+		$this->load->helper('file');
+		// page info here, db calls, etc.
+		$this->load->model('GetCV');
+		$send['person'] = $this->GetCV->getPerson();
+		$send['educationQuals'] = $this->GetCV->getEducationalQuals();
+		$send['experiences'] = $this->GetCV->getExperiences();
+		$send['professionalQuals'] = $this->GetCV->getProfessionalQuals();
+		$send['skills'] = $this->GetCV->getSkills();
+		$send['preferences'] = $this->GetCV->getPreferences();
+		$send['referees'] = $this->GetCV->GetReferees();
+		$send['content'] = "jobseeker/cvview";
+		// end of page info		
+		$html = $this->load->view('jobseeker/template', $send, true);
+		pdf_create($html, 'filename');
+	//	or
+	//	$data = pdf_create($html, '', false);
+	//	write_file('name', $data);
+	//if you want to write it to disk and/or send it as an attachment    
 		}
-	
+}
