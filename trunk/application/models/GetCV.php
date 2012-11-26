@@ -30,7 +30,21 @@ class GetCV extends CI_Model{
 		}
 	}
 	
-
+	public function getProfessionalQuals() {
+	$person = $this->session->userdata('user_id');
+	$this->db->select('*');
+	$this->db->from('professional_qualifications');
+	$this->db->join('persons', 'persons.idUser = professional_qualifications.Persons_idUser');
+	$this->db->where('persons.idUser', $person);
+	$query = $this->db->get();
+	if($query->num_rows() > 0) {
+		foreach($query->result() as $row) {
+			$data[] = $row;
+			}
+			return $data;
+		}
+	}
+	
 	public function getExperiences() {
 	$person = $this->session->userdata('user_id');
 	$this->db->select('*');
@@ -38,6 +52,21 @@ class GetCV extends CI_Model{
 	$this->db->join('job_titles', 'experiences.JobTitles_idJobTitles = job_titles.idJobTitles');
 	$this->db->join('persons', 'persons.idUser = experiences.Persons_idUser');
 	$this->db->join('employment_levels', 'experiences.EmploymentLevels_idLevelsOfEmployment = employment_levels.idLevelsOfEmployment');
+	$this->db->where('persons.idUser', $person);
+	$query = $this->db->get();
+	if($query->num_rows() > 0) {
+		foreach($query->result() as $row) {
+			$data[] = $row;
+			}
+			return $data;
+		}
+	}
+	
+	public function getSkills() {
+	$person = $this->session->userdata('user_id');
+	$this->db->select('*');
+	$this->db->from('skills');
+	$this->db->join('persons', 'persons.idUser = skills.Persons_idUser');
 	$this->db->where('persons.idUser', $person);
 	$query = $this->db->get();
 	if($query->num_rows() > 0) {
