@@ -83,4 +83,14 @@ echo 'Verification Method: ' . $r->howVerified . '<br/>';
 echo '</p>';
 }
 
+echo '<h2>Job Preferences</h2>';
+$count = 0;
+foreach ($preferences as $r)
+{
+$count ++;
+echo '<p>';
+echo 'Desired Job Title ' . $count . ': ' . $r->jobTitle . '<br/>';
+echo '</p>';
+}
+
 ?>
