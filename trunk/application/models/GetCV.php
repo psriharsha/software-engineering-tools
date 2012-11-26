@@ -76,5 +76,21 @@ class GetCV extends CI_Model{
 			return $data;
 		}
 	}
+	
+	public function getPreferences() {
+	$person = $this->session->userdata('user_id');
+	$this->db->select('*');
+	$this->db->from('job_preferences');
+	$this->db->join('persons', 'persons.idUser = job_preferences.person_idUser');
+	$this->db->join('job_titles', 'job_titles.idJobTitles = job_preferences.JobTitles_idJobTitles');
+	$this->db->where('persons.idUser', $person);
+	$query = $this->db->get();
+	if($query->num_rows() > 0) {
+		foreach($query->result() as $row) {
+			$data[] = $row;
+			}
+			return $data;
+		}
+	}
 }
 ?>
