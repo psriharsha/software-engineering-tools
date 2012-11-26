@@ -40,7 +40,10 @@ foreach ($experiences as $r)
 $count ++;
 echo '<h3>Job Role ' . $count . '</h3>';
 echo '<p>';
+echo 'Job Title: ' . $r->jobTitle . '<br/>';
 echo 'Start Date: ' . $r->dateStarted . '<br/>';
+echo 'End Date: ' . $r->dateFinished . '<br/>';
 echo '</p>';
 }
+
 ?>
