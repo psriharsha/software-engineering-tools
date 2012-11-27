@@ -14,6 +14,9 @@ echo 'Landline Telephone: ' . $r->landline . '<br/>';
 echo '</p>';
 }
 echo '<h2>Educational Qualifications</h2>';
+if (!$educationQuals) {
+echo 'No Educational Qualifications have been saved. Please update your profile. <br>'; }
+else {
 $count = 0;
 foreach ($educationQuals as $r)
 {
@@ -33,8 +36,12 @@ else echo 'Verified: No<br/>';
 echo 'Verification Method: ' . $r->howVerified . '<br/>';
 echo '</p>';
 }
+}
 
 echo '<h2>Professional Qualifications</h2>';
+if (!$professionalQuals) {
+echo 'No Professional Qualifications have been saved. Please update your profile. <br>'; }
+else {
 $count = 0;
 foreach ($professionalQuals as $r)
 {
@@ -50,8 +57,12 @@ else echo 'Verified: No<br/>';
 echo 'Verification Method: ' . $r->howVerified . '<br/>';
 echo '</p>';
 }
+}
 
 echo '<h2>Work Experience</h2>';
+if (!$experiences) {
+echo 'No Professional Qualifications have been saved. Please update your profile. <br>'; }
+else {
 $count = 0;
 foreach ($experiences as $r)
 {
@@ -67,8 +78,12 @@ echo 'Employer Name: ' . $r->employerName . '<br/>';
 
 echo '</p>';
 }
+}
 
 echo '<h2>Skills</h2>';
+if (!$skills) {
+echo 'No Skills have been saved. Please update your profile. <br>'; }
+else {
 $count = 0;
 foreach ($skills as $r)
 {
@@ -82,8 +97,12 @@ else echo 'Verified: No<br/>';
 echo 'Verification Method: ' . $r->howVerified . '<br/>';
 echo '</p>';
 }
+}
 
 echo '<h2>Job Preferences</h2>';
+if (!$preferences) {
+echo 'No Job Preferences have been saved. Please update your profile. <br>'; }
+else {
 $count = 0;
 foreach ($preferences as $r)
 {
@@ -92,8 +111,12 @@ echo '<p>';
 echo 'Desired Job Title ' . $count . ': ' . $r->jobTitle . '<br/>';
 echo '</p>';
 }
+}
 
 echo '<h2>References</h2>';
+if (!$referees) {
+echo 'No References have been saved. Please update your profile. <br>'; }
+else {
 $count = 0;
 foreach ($referees as $r)
 {
@@ -111,5 +134,5 @@ if ($r->permissionToStoreDetails == 1) echo 'Yes<br/>';
 else echo 'No<br/>';
 echo '</p>';
 }
-
+}
 ?>
