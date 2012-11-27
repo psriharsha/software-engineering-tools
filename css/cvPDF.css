@@ -28,27 +28,31 @@ a{
 }
 
 h1{
-	text-align:center;
-	padding:1em 1em 1em;
+	margin-left:100px;
+	text-decoration:bold;
+	text-decoration:underline;
 }
 
 table
 {
 	width:80%;
-	margin:auto;
-	border-collapse:collapse;
-	border: 2px solid black;
+	margin-left:100px;
+	text-align:left;
 }
 th, td
 {
-	border: 1px solid black;
+	text-align:left;
 }
 th
 {
-	width:300px;
+	width:250px;
 	height:25px;
 }
 
+img
+{
+	margin-left:100px;
+}
 
 #menu ul li{
 	display:inline;
@@ -222,9 +226,14 @@ box-shadow: 10px 5px 5px #161616;
 
 
 h2{
-	text-align: center;
+	margin-left:100px;
+	text-decoration:underline;
 	color: #5b6887;
 	padding: .25em;
+}
+
+h3 {
+	text-align: left;
 }
 
 input[type=text],input[type=password]{
@@ -352,8 +361,8 @@ h4{
 
 
 h5{
-    padding: 10px 25px 0;
-    margin: 0 10px 0;
+    
+    margin-left: 100px;
 }
 
 #footer a:hover{
