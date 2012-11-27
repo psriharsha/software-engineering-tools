@@ -1,18 +1,19 @@
 <div id="cv">
 <?php
+
 foreach ($person as $r) 
 {
 echo '<h1>' . $r->forename1 . ' ' . $r->surname . '</h1>';
 echo '<h2>Personal Details</h2>';
-echo '<p>';
-echo 'Name: ' . $r->title . ' ' . $r->forename1 . ' ' . $r->surname . '<br/>';
-echo 'Address: ' . $r->addressLine1 . ', ' . $r->addressLine2 . ', ' . $r->town . ', ' . $r->postcode . '<br/>';
-echo 'E-mail address: ' . $r->username . '<br/>';
-echo 'Secondary e-mail address: ' . $r->secondEmail . '<br/>';
-echo 'Personal Web Site: ' . $r->personalUrl . '<br/>';
-echo 'Mobile Telephone: ' . $r->mobile . '<br/>';
-echo 'Landline Telephone: ' . $r->landline . '<br/>';
-echo '</p>';
+echo '<table><tr>';
+echo '<th>Name:</th><td>' . $r->title . ' ' . $r->forename1 . ' ' . $r->surname . '</td></tr>';
+echo '<tr><th>Address:</th><td>' . $r->addressLine1 . ', ' . $r->addressLine2 . ', ' . $r->town . ', ' . $r->postcode . '</td></tr>';
+echo '<tr><th>E-mail address:</th><td> ' . $r->username . '</td></tr>';
+if (isset($r->secondEmail)) {echo 'Secondary e-mail address: ' . $r->secondEmail . '<br/>';}
+if (isset($r->personalUrl)) {echo 'Personal Web Site: ' . $r->personalUrl . '<br/>';}
+if (isset($r->mobile)) {echo 'Mobile Telephone: ' . $r->mobile . '<br/>';}
+if (isset($r->landline)) {echo 'Landline Telephone: ' . $r->landline . '<br/>';}
+echo '</table>';
 }
 if ($educationQuals) {
 echo '<h2>Educational Qualifications</h2>';
@@ -60,36 +61,36 @@ echo '</p>';
 if ($experiences) {
 echo '<h2>Work Experience</h2>';
 $count = 0;
+echo '<table>';
 foreach ($experiences as $r)
 {
 $count ++;
-echo '<h3>Job Role ' . $count . '</h3>';
-echo '<p>';
-echo 'Job Title: ' . $r->jobTitle . '<br/>';
-echo 'Start Date: ' . $r->dateStarted . '<br/>';
-echo 'End Date: ' . $r->dateFinished . '<br/>';
-echo 'Level of Employment: ' . $r->employmentLevel . '<br/>';
-echo 'Key Duties: ' . $r->keyDuties . '<br/>';
-echo 'Employer Name: ' . $r->employerName . '<br/>';
+echo '<tr><th colspan="2"><h3>Job Role ' . $count . '</h3></th></tr>';
+echo '<tr><th>Job Title:</th><td>' . $r->jobTitle . '</td></tr>';
+echo '<tr><th>Start Date:</th><td>' . $r->dateStarted . '</td></tr>';
+echo '<tr><th>End Date:</th><td>' . $r->dateFinished . '</td></tr>';
+echo '<tr><th>Level of Employment:</th><td>' . $r->employmentLevel . '</td></tr>';
+echo '<tr><th>Key Duties:</th><td>' . $r->keyDuties . '</td></tr>';
+echo '<tr><th>Employer Name:</th><td>' . $r->employerName . '</td></tr>';
 
-echo '</p>';
+echo '</table>';
 }
 }
 
 if ($skills) {
 echo '<h2>Skills</h2>';
 $count = 0;
+echo '<table>';
 foreach ($skills as $r)
 {
 $count ++;
-echo '<h3>Skill ' . $count . '</h3>';
-echo '<p>';
-echo 'Skill Name: ' . $r->skillName . '<br/>';
-echo 'Skill Level: ' . $r->skillLevel . '<br/>';
-if ($r->verified == 1) echo 'Verified: Yes<br/>';
-else echo 'Verified: No<br/>';
-echo 'Verification Method: ' . $r->howVerified . '<br/>';
-echo '</p>';
+echo '<tr><th colspan="2"><h3>Skill ' . $count . '</h3>';
+echo '<tr><th>Skill Name:</th><td>' . $r->skillName . '</td></tr>';
+echo '<tr><th>Skill Level:</th><td>' . $r->skillLevel . '</td></tr>';
+if ($r->verified == 1) echo '<tr><th>Verified:</th><td>Yes</td></tr>';
+else echo '<tr><th>Verified:</th><td>No</td></tr>';
+echo '<tr><th>Verification Method:</th><td>' . $r->howVerified . '</td></tr>';
+echo '</table>';
 }
 }
 if ($preferences) {
