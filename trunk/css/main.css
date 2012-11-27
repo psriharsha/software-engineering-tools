@@ -342,9 +342,6 @@ select{
 
 #logout{
     margin-left:90%;
-    text-decoration: underline;
-    font-size: 12px;
-    color: #9299ab;
 }
 .postMessage{
 	background: #FF9;
