@@ -15,7 +15,8 @@
 												<th><h5><?php echo $name = $rows->forename1; ?></h5></th>
 												<th><h5><?php echo $surname = $rows->surname;?></h5></th>
 												<th><h5><?php echo $prefJob = $rows->jobTitle;?></h5></th>
-												<th><?php echo anchor(base_url()."index.php/employer/empViewCV/".$idUser,'select');?></th>
+												<th><a href="<?php echo base_url();?>index.php/employer/empViewCV/<?php echo $idUser;?>">
+												<img src="<?php echo base_url();?>images/select-icon.png" alt="select-icon"/></a></th>
 											</tr>
 												<?php endforeach;?>
 		

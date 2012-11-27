@@ -6,4 +6,11 @@
 <li><a href="<?php echo base_url(); ?>index.php/jobseeker/viewCV/pdf_cv" target="_blank">Download CV (PDF)</a></li>
 <li></li>
 </ul>
-</div><!--End of the Menu-->
+</div>
+
+<div id="logout">
+		<a href="<?php echo base_url();?>index.php/login/logout"><img src="<?php echo base_url();?>images/logout-icon.png" alt="logout"/></a>
+</div>
+
+
+<!--End of the Menu-->

@@ -4,5 +4,5 @@
 </ul>
 </div>
 <div id="logout">
-		<a href="<?php echo base_url();?>index.php/login/logout">Log out</a>
+		<a href="<?php echo base_url();?>index.php/login/logout"><img src="<?php echo base_url();?>images/logout-icon.png" alt="logout"/></a>
 </div>
