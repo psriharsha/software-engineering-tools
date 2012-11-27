@@ -17,7 +17,7 @@
 												<th><h5><?php echo $prefJob = $rows->jobTitle;?></h5></th>
 												<th><a href="<?php echo base_url();?>index.php/employer/empViewCV/<?php echo $idUser;?>">
 												<img src="<?php echo base_url();?>images/select-icon.gif" alt="select-icon"/></a></th>
-												<th><a href="<?php echo base_url();?>index.php/employer/empViewCV-PDF/<?php echo $idUser;?>">
+												<th><a href="<?php echo base_url();?>index.php/employer/empViewCVPDF/<?php echo $idUser;?>">
 												<img src="<?php echo base_url();?>images/select-icon-pdf.gif" alt="view-pdf"/></a></th>
 											</tr>
 												<?php endforeach;?>
