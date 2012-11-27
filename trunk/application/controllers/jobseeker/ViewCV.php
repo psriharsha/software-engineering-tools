@@ -39,7 +39,7 @@ class viewCV extends CI_Controller {
 		$send['preferences'] = $this->GetCV->getPreferences();
 		$send['referees'] = $this->GetCV->GetReferees();
 		$send['content'] = "jobseeker/cvview";
-		$this->load->view('jobseeker/template',$send);
+		$this->load->view('jobseeker/CV_template',$send);
 		}
 		
 	//This function generates the CV as a PDF document using DOMPDF
