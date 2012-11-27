@@ -171,6 +171,7 @@ NULL ,";
 	
 	public function getInfo($data)
 	{
+		$this->db->order_by($data['what'], "asc");
 		if($data['where'] == "persons")
 			$res = $this->db->get_where($data['where'],array('idUser'=>$this->session->userdata('user_id')));
 		else 

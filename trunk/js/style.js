@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$('.accordian ul li:nth-child(even)').hide();
 	$('.accTable').hide();
 	$('#acc1c').show();
-	getdata('#acc1');
+	getdata('acc1');
 	var initial = true;
 	var curr = "acc1";
 
@@ -42,6 +42,9 @@ $(document).ready(function(){
 		curr = id;
 	});
 	
+	$('#edit2 a').click(function(){
+		$('#contactTable').slideDown(1000);
+	});
 	
 	
 	
