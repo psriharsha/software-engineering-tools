@@ -139,4 +139,9 @@ class Profile extends CI_Controller {
 		echo $res;
 	}
 	
+	public function deleteBySpan()
+	{
+		
+	}
+	
 }

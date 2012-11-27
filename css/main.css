@@ -207,8 +207,6 @@ input[type=text],input[type=password]{
 	display: block;
 	margin-top: 1em;
 	margin-bottom: 1em;
-	margin-left:auto;
-	margin-right:auto;
 	padding:0.5em 0.5em 0.5em 0.5em;
 	width: 80.2%;
 	-moz-border-radius: 1px;
@@ -309,7 +307,7 @@ input[type=submit]:hover, .sendData:hover{
 	font-size: 12px;	
 }
 
-#result h3,h5{
+#result h3,h5,a{
     font-size: 16px;
     color: #9299ab;
 }

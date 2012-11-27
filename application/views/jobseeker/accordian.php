@@ -2,6 +2,7 @@
 <ul>
 <li id="acc1">Personal Details</li>
 <li id="acc1c">
+<div id="temp1" class="postMessage"></div>
 <table class="accTable" cellspacing="10px" id="personalTable">
 <tr>
 <td>Address Line 1</td>
@@ -78,7 +79,6 @@ for ($i=1; $i<=20; $i++)
 </td>
 </tr>
 </table>
-<div id="temp1" class="postMessage">Your Personal Details have been Saved. Edit</div>
 <script type="text/javascript">
 $('#perform').click(function(){
 	var data = {
@@ -111,6 +111,7 @@ function send(dataSend){
 </li>
 <li id="acc2">Contact Details</li>										<!--  Accordian 2  -->
 <li id="acc2c">
+<div id="temp2" class="postMessage"></div>
 <table class="accTable" cellspacing="10px" id="contactTable">
 <tr>
 <td>Alternate Mail</td>
@@ -143,7 +144,6 @@ function send(dataSend){
 </td>
 </tr>
 </table>
-<div id="temp2" class="postMessage"></div>
 <script type = "text/javascript">
 $('#conform').click(function(){
 	var data = {
@@ -166,6 +166,7 @@ $('#conform').click(function(){
 </li>																		<!--  Accordian 2  -->
 <li id="acc3">Educational Qualifications</li>								<!-- Educational Qualifications -->
 <li id="acc3c">
+<div id="temp3" class="postMessage"></div>
 <table class="accTable" cellspacing="10px" id="eduTable">
 <tr>
 <td>Qualification</td>
@@ -242,7 +243,6 @@ $('#conform').click(function(){
 </td>
 </tr>
 </table>
-<div id="temp3" class="postMessage"></div>
 <script type="text/javascript">
 $('#eduform').click(function(){
 	var data = {
@@ -272,6 +272,7 @@ $('#eduform').click(function(){
 </li>
 <li id="acc4">Professional Qualifications</li>
 <li id="acc4c">
+<div id="temp4" class="postMessage"></div>
 <table class="accTable" cellspacing="10px" id="proTable">
 <tr>
 <td>Qualification</td>
@@ -325,7 +326,6 @@ $('#eduform').click(function(){
 </td>
 </tr>
 </table>
-<div id="temp4" class="postMessage"></div>
 <script type="text/javascript">
 $('#proform').click(function(){
 	var data = {
@@ -352,6 +352,7 @@ $('#proform').click(function(){
 </li>
 <li id="acc5">Experiences</li>
 <li id="acc5c">
+<div id="temp5" class="postMessage"></div>
 <table class="accTable" cellspacing="10px" id="expTable">
 <tr>
 <td>Job Title</td>
@@ -417,7 +418,6 @@ $('#proform').click(function(){
 </td>
 </tr>
 </table>
-<div id="temp5" class="postMessage"></div>
 <script type="text/javascript">
 $('#expform').click(function(){
 	var data = {
@@ -445,6 +445,7 @@ $('#expform').click(function(){
 </li>
 <li id="acc6">Referees</li>
 <li id="acc6c">
+<div id="temp6" class="postMessage"></div>
 <table class="accTable" cellspacing="10px" id="refTable">
 <tr>
 <td>Title</td>
@@ -489,7 +490,6 @@ $('#expform').click(function(){
 </td>
 </tr>
 </table>
-<div id="temp6" class="postMessage"></div>
 <script type="text/javascript">
 $('#refform').click(function(){
 	var data = {
@@ -566,7 +566,7 @@ var open = true;
 			case "acc2": 
 				table = "contactTable";if(msg != "NULL")
 			{
-				display = "Contact Information is saved. Click <span id=\"edit1\">Here</span> to edit it.";
+				display = "Contact Information is saved. Click <span id=\"edit2\">Here</span> to edit it.";
 				open = false;
 			}
 						break;
@@ -606,14 +606,20 @@ var open = true;
 				var temp = new Array();
 				temp = msg.split("|");
 				for(i=0;i<(temp.length-1);i++)
-					display += temp[i]+" has been added as your Referee. Click <span id=\"edit4-"+i+"\">Here</span> to delete him/her.<br>";
+					display += temp[i]+" has been added as your Referee. Click <span id=\"edit6-"+i+"\">Here</span> to delete him/her.<br>";
 				open = false;
 			}
 						break;
 			};
 			if(msg!="NULL")
 			{
-			$('#'+to).html(display);
+			$('#'+to).append(display);
+			$('#'+to+" span").click(function(){
+				var toSend = $(this).attr("id");
+				$('#'+table).show();
+				toSend = toSend.replace("edit","");
+				alert(toSend);
+			});
 			if(!open)
 			$('#'+table).hide();
 			}
