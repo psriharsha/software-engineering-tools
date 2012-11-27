@@ -28,6 +28,7 @@ a{
 }
 
 h1{
+	text-align:center;
 	padding:1em 1em 1em;
 }
 
@@ -221,7 +222,7 @@ box-shadow: 10px 5px 5px #161616;
 
 
 h2{
-	text-align: left;
+	text-align: center;
 	color: #5b6887;
 	padding: .25em;
 }
