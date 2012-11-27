@@ -18,7 +18,7 @@ $send['referees'] = $this->GetEmpCV->GetReferees($UserID);
 $send['content'] = "jobseeker/cvview";
 $this->load->view('employer/cvTemplate',$send);
 // end of page info	
-$html = $this->load->view('employer/cvTemplate', $send, true);
+$html = $this->load->view('employer/cvTemplatePDF', $send, true);
 pdf_create($html, 'filename');
 }
 }
