@@ -1,7 +1,7 @@
 <div id="cv">
 <?php
 
-echo'<h1>Curriculum Vitae</h2>';
+echo'<h1>Curriculum Vitae</h1>';
 
 foreach ($person as $r) 
 {
