@@ -263,7 +263,7 @@ $('#eduform').click(function(){
 		type: 'POST',
 		data: data,
 		success: function(msg){
-			$('#temp3').html(msg);
+			$('#temp3').append("<br>"+msg);
 			$('#eduTable').slideUp("slow");
 		}
 	});
@@ -343,7 +343,7 @@ $('#proform').click(function(){
 		type: 'POST',
 		data: data,
 		success: function(msg){
-			$('#temp4').html(msg);
+			$('#temp4').append("<br>"+msg);
 			$('#proTable').slideUp("slow");
 		}
 	});
@@ -436,16 +436,73 @@ $('#expform').click(function(){
 		type: 'POST',
 		data: data,
 		success: function(msg){
-			$('#temp5').html(msg);
+			$('#temp5').append("<br>"+msg);
 			$('#expTable').slideUp("slow");
 		}
 	});
 });
 </script>
 </li>
-<li id="acc6">Referees</li>
-<li id="acc6c">
-<div id="temp6" class="postMessage"></div>
+<li id = "acc6">Skills</li>
+<li id = "acc6c">
+<div id = "temp6" class="postMessage"></div>
+<table class="accTable" cellspacing="10px" id="skillTable">
+<tr>
+<td>Skill Name</td>
+<td><input id="skillName" type="text" size="20" maxlength="20" /></td>
+</tr>
+<tr>
+<td>Skill Level</td>
+<td>
+<select id="skillLevel">
+<option value="Basic">Basic</option>
+<option value="Good">Good</option>
+<option value="Excellent">Excellent</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Verified</td>
+<td>
+<select id="skillVeri">
+<option value="0">Yes</option>
+<option value="1">No</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Verified By</td>
+<td><input id="skillVeriBy" type="text" size="20" maxlength="20" />
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center" style="padding-top: 30px"><span class="sendData" id="skillform">Submit</span>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+$('#skillform').click(function(){
+	var data = {
+			skillName : $('#skillName').val(),
+			skillLevel : $('#skillLevel').val(),
+			verified : $('#skillVeri').val(),
+			howVerified : $('#skillVeriBy').val()
+	};
+	$.ajax({
+		url: "<?php echo base_url()?>index.php/jobseeker/Profile/saveSkill",
+		type: 'POST',
+		data: data,
+		success: function(msg){
+			$('#temp6').append("<br>"+msg);
+			$('#skillTable').slideUp("slow");
+		}
+	});
+});
+</script>
+</li>
+<li id = "acc7">Referees</li>
+<li id="acc7c">
+<div id="temp7" class="postMessage"></div>
 <table class="accTable" cellspacing="10px" id="refTable">
 <tr>
 <td>Title</td>
@@ -505,48 +562,61 @@ $('#refform').click(function(){
 		type: 'POST',
 		data: data,
 		success: function(msg){
-			$('#temp6').html(msg);
+			$('#temp7').append("<br>"+msg);
 			$('#refTable').slideUp("slow");
 		}
 	});
 });
 function getdata(id)
 {
-	var what="", where="";
+	var what1="", what2="", where="";
 	switch(id)
 	{
-	case "acc1": what = "addressLine1";
+	case "acc1": what1 = "addressLine1";
 				where = "persons";
+				what2 = "addressLine1";
 				to = "temp1";
 				break;
-	case "acc2": what = "contactPreference";
+	case "acc2": what1 = "contactPreference";
 				where = "persons";
+				what2 = "addressLine1";
 				to = "temp2";
 				break;
-	case "acc3": what = "qualificationType";
+	case "acc3": what1 = "qualificationType";
 				where = "educational_qualifications";
+				what2 = "idEducationalQualifications";
 				to = "temp3";
 				break;
-	case "acc4": what = "qualificationName";
+	case "acc4": what1 = "qualificationName";
 				where = "professional_qualifications";
+				what2 = "idProfessionalQualifications";
 				to = "temp4";
 				break;
-	case "acc5": what = "dateStarted";
+	case "acc5": what1 = "dateStarted";
 				where = "experiences";
+				what2 = "idExperiences";
 				to = "temp5";
 				break;
-	case "acc6": what = "forename";
-				where = "referees";
+	case "acc6": what1 = "skillName";
+				where = "skills";
+				what2 = "idSkills";
 				to = "temp6";
+				break;
+	case "acc7": what1 = "forename";
+				where = "referees";
+				what2 = "idReferees";
+				to = "temp7";
 				break;
 	};
 	
 	var dataSend = {
-			what : what,
+			what1 : what1,
+			what2 : what2,
 			where : where
 	};
 var display="";
 var table = "";
+var append = "";
 var open = true;
 	
 	$.ajax({
@@ -573,58 +643,108 @@ var open = true;
 			case "acc3":
 				table = "eduTable";if(msg != "NULL")
 			{
-				var temp = new Array();
-				temp = msg.split("|");
-				for(i=0;i<(temp.length-1);i++)
-					display += temp[i]+" has been added to your Educational Qualifications. Click <span id=\"edit3-"+i+"\">Here</span> to delete it.<br>";
+				var stringSplit = new Array();
+				stringSplit = msg.split("#");
+				for(i=0;i<(stringSplit.length-1);i++){
+					var idSplit = stringSplit[i].split("|");
+					for(j=0;j<(idSplit.length-1);)
+					display += idSplit[j]+" has been added to your Educational Qualifications. <span id=\"edit3-"+idSplit[++j]+"\">Click Here to delete it.<br>";
+
+					append = "<span id = \"T"+table+"\">Click Here to add another Educational Qualification to tour Resume</span>";}				
 				open = false;
 			}
 						break;
 			case "acc4":
 				table = "proTable";if(msg != "NULL")
 			{
-				var temp = new Array();
-				temp = msg.split("|");
-				for(i=0;i<(temp.length-1);i++)
-					display += temp[i]+" has been added to your Professional Qualifications. Click <span id=\"edit4-"+i+"\">Here</span> to delete it.<br>";
+				var stringSplit = new Array();
+				stringSplit = msg.split("#");
+				for(i=0;i<(stringSplit.length-1);i++){
+					var idSplit = stringSplit[i].split("|");
+					for(j=0;j<(idSplit.length-1);)
+					display += idSplit[j]+" has been added to your Professional Qualifications. <span id=\"edit4-"+idSplit[++j]+"\">Click Here to delete it.</span><br>";
+
+					append = "<span id = \"T"+table+"\">Click Here to add another Professional Qualification to your Resume</span>";}
 				open = false;
 			}
 						break;
 			case "acc5": 
 				table = "expTable";if(msg != "NULL")
 			{
-				var temp = new Array();
-				temp = msg.split("|");
-				for(i=0;i<(temp.length-1);i++)
-					display += temp[i]+" has been added to your Experiences. Click <span id=\"edit5-"+i+"\">Here</span> to delete it.<br>";
+				var stringSplit = new Array();
+				stringSplit = msg.split("#");
+				for(i=0;i<(stringSplit.length-1);i++){
+					var idSplit = stringSplit[i].split("|");
+					for(j=0;j<(idSplit.length-1);)
+					display += idSplit[j]+" has been added to your Experiences. <span id=\"edit5-"+idSplit[++j]+"\">Click Here to delete it.</span><br>";
+
+					append = "<span id = \"T"+table+"\">Click Here to add another Experience to your Resume</span>";}
 				open = false;
 			}
 						break;
 			case "acc6": 
+				table = "skillTable";
+				if(msg != "NULL")
+			{
+				var stringSplit = new Array();
+				stringSplit = msg.split("#");
+				for(i=0;i<(stringSplit.length-1);i++){
+					var idSplit = stringSplit[i].split("|");
+					for(j=0;j<(idSplit.length-1);)
+					display += idSplit[j]+" has been added to your Skills. <span id=\"edit6-"+idSplit[++j]+"\">Click Here to delete it.</span><br>";
+
+					append = "<span id = \"T"+table+"\">Click Here to add another Skill to your Resume</span>";}
+				open = false;
+			}
+						break;
+			case "acc7": 
 				table = "refTable";if(msg != "NULL")
 			{
-				var temp = new Array();
-				temp = msg.split("|");
-				for(i=0;i<(temp.length-1);i++)
-					display += temp[i]+" has been added as your Referee. Click <span id=\"edit6-"+i+"\">Here</span> to delete him/her.<br>";
+				var stringSplit = new Array();
+				stringSplit = msg.split("#");
+				for(i=0;i<(stringSplit.length-1);i++){
+					var idSplit = stringSplit[i].split("|");
+					for(j=0;j<(idSplit.length-1);)
+					display += idSplit[j]+" has been added as your Referee. <span id=\"edit7-"+idSplit[++j]+"\">Click Here to delete him/her.</span><br>";
+
+					append = "<span id = \"T"+table+"\">Click Here to add another Referee to Your Resume</span>";}
 				open = false;
 			}
 						break;
 			};
-			if(msg!="NULL")
-			{
-			$('#'+to).append(display);
+			$('#'+to).html(display);
+			$('#'+to).append(append);
+			if(!open)
+			$('#'+table).slideUp('slow');
+			else
+				$('#'+table).slideDown('slow');
 			$('#'+to+" span").click(function(){
 				var toSend = $(this).attr("id");
-				$('#'+table).show();
-				toSend = toSend.replace("edit","");
-				alert(toSend);
+				var contains = toSend.slice(0,4);
+				if(contains == "edit")
+				{
+				toSend = toSend.replace("edit","");	
+				if(toSend!=1 && toSend!=2){
+					var dataDelete = {
+							from : toSend.slice(0,1),
+							del : toSend.slice(2, toSend.length)
+					};
+					$.ajax({
+						url: "<?php echo base_url()?>index.php/jobseeker/Profile/deleteBySpan",
+						type: 'POST',
+						data: dataDelete,
+						success: function(msg){
+							if(msg == "Success")
+							{
+								getdata("acc"+dataDelete['from']);
+							}
+						}
+					});
+				}
+				}
+				else
+					$('#'+table).show();
 			});
-			if(!open)
-			$('#'+table).hide();
-			}
-			else
-				$('#'+table).show();
 		}
 	});
 }
