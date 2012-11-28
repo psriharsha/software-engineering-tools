@@ -115,7 +115,21 @@ class Profile extends CI_Controller {
 		$this->load->model('Register');
 		$res = $this->Register->insRef($data);
 		if($res)
-			$final = "Experiences Saved";
+			$final = "Reference Saved";
+		else
+			$final = "Error";
+		echo $final;
+	}
+	
+	public function saveSkill(){
+		$data['skillName'] = $this->input->post('skillName');
+		$data['skillLevel'] = $this->input->post('skillLevel');
+		$data['verified'] = $this->input->post('verified');
+		$data['howVerified'] = $this->input->post('howVerified');
+		$this->load->model('Register');
+		$res = $this->Register->insSkill($data);
+		if($res)
+			$final = "Skill Saved";
 		else
 			$final = "Error";
 		echo $final;
@@ -123,7 +137,8 @@ class Profile extends CI_Controller {
 	
 	public function getData()
 	{
-		$data['what'] = $this->input->post('what');
+		$data['what1'] = $this->input->post('what1');
+		$data['what2'] = $this->input->post('what2');
 		$data['where'] = $this->input->post('where');
 		$this->load->model('Register');
 		$result = $this->Register->getInfo($data);
@@ -133,7 +148,9 @@ class Profile extends CI_Controller {
 			$res = "";
 			foreach($result->result() as $row)
 			{
-				$res .= $row->$data['what']."|";
+				if($data['where'] != "persons")
+				$res .= $row->$data['what1']."|";
+				$res .= $row->$data['what2']."#";
 			}
 		}
 		echo $res;
@@ -141,7 +158,26 @@ class Profile extends CI_Controller {
 	
 	public function deleteBySpan()
 	{
-		
+		$data['from'] = $this->input->post('from');
+		$data['del'] = $this->input->post('del'); 
+		$from = "";
+		if($data['from'] == 3)
+			$from = "educational_qualifications";
+		else if($data['from'] == 4)
+			$from = "professional_qualifications";
+		else if($data['from'] == 5)
+			$from = "experiences";
+		else if($data['from'] == 6)
+			$from = "skills";
+		else $from = "referees";
+		$del = $data['del'];
+		$this->load->model('Register');
+		$res = $this->Register->deleteData($from,$del);
+		if($res)
+			$final = "Success";
+		else
+			$final = "Error";
+		echo $final;
 	}
 	
 }

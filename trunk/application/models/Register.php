@@ -142,6 +142,29 @@ NULL ,";
 			return false;
 	}
 	
+	public function insSkill($data){
+		$query = "INSERT INTO `jobsite`.`skills` (
+`idSkills` ,
+`Persons_idUser` ,
+`skillName` ,
+`skillLevel` ,
+`verified` ,
+`howVerified`
+)
+VALUES (
+NULL ,";
+		$query .= "".$this->session->userdata('user_id').",";
+		$query .= "'".$data['skillName']."',";
+		$query .= "'".$data['skillLevel']."',";
+		$query .= "".$data['verified'].",";
+		$query .= "'".$data['howVerified']."');";
+		$res = $this->db->query($query);
+		if($res == 1)
+			return true;
+		else
+			return false;
+	}
+	
 	public function insRef($data){
 		$query = "INSERT INTO `jobsite`.`referees` (
 `idReferees` ,
@@ -171,12 +194,31 @@ NULL ,";
 	
 	public function getInfo($data)
 	{
-		$this->db->order_by($data['what'], "asc");
+		$this->db->order_by($data['what2'], "asc");
 		if($data['where'] == "persons")
 			$res = $this->db->get_where($data['where'],array('idUser'=>$this->session->userdata('user_id')));
 		else 
 			$res = $this->db->get_where($data['where'],array('Persons_idUser'=>$this->session->userdata('user_id')));
 		return $res;
+	}
+	
+	public function deleteData($from,$del){
+		$criteria = "";
+		if($from == "educational_qualifications")
+			$criteria = "idEducationalQualifications";
+		else if($from == "professional_qualifications")
+			$criteria = "idProfessionalQualifications";
+		else if($from == "experiences")
+			$criteria = "idExperiences";
+		else if($from == "skills")
+			$criteria = "idSkills";
+		else $criteria = "idReferees";
+		$this->db->where($criteria, $del);
+		$res = $this->db->delete($from);
+		if($res == 1)
+			return true;
+		else
+			return false;
 	}
 	
 	
