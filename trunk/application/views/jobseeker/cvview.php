@@ -9,7 +9,7 @@ foreach ($person as $r)
 echo '<h2>Personal Details</h2>';
 echo '<table>';
 echo '<tr><th>Name:</th><td>' . $r->title . ' ' . $r->forename1 . ' ' . $r->surname . '</td></tr>';
-echo '<tr><th>Address:</th><td>' . $r->addressLine1 . ', ' . $r->addressLine2 . ', ' . $r->town . ', ' . $r->postcode . '</td></tr>';
+echo '<tr><th>Address:</th><td>' . $r->addressLine1 . ', '. $r->town . ', ' . $r->postcode . '</td></tr>';
 echo '<tr><th>E-mail address:</th><td>' . $r->username . '</td></tr>';
 if (isset($r->secondEmail)) {echo '<tr><th>Secondary e-mail address:</th><td>' . $r->secondEmail . '</td></tr>';}
 if (isset($r->personalUrl)) {echo '<tr><th>Personal Web Site:</th><td>' . $r->personalUrl . '</td></tr>';}
