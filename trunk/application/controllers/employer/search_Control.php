@@ -33,6 +33,7 @@ class search_Control extends CI_Controller {
 		$send['dropdown_education'] = $this->dropdown->dropdown_education();
 		$send['dropdown_job'] = $this->dropdown->dropdown_job();
 		$send['dropdown_employmentLevel'] = $this->dropdown->dropdown_employmentLevel();
+		$send['dropdown_sectors'] = $this->dropdown->dropdown_sectors();
 		$this->load->view('employer/template',$send);
 	}
 	
@@ -42,7 +43,7 @@ class search_Control extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('qualificationType', 'qualification type', 'trim|alpha');
 		$this->form_validation->set_rules('skill','Skill','trim|alpha');
-		
+		$this->form_validation->set_rules('gcsePass', 'Number of GCSE pass', 'trim|is_natural');
 		
 		if($this->form_validation->run() == FALSE){
 			$this->index();
@@ -54,19 +55,26 @@ class search_Control extends CI_Controller {
 		
 			$data = $this->search_Model->getJobSeeker();
 			
+			
+			
 				if($data == array()){
 					$send['records'] = "No records were returned";
 				}
 				else{
-					$send['records'] = $data;	
+		
+					$send['no'] = count($data);
+					$send['records'] = $data;
+
 				}
+				
 
 			$send['content'] = "employer/search_View";
 			$send['content2'] = "employer/search_result";
 			$send['dropdown_education'] = $this->dropdown->dropdown_education();
 			$send['dropdown_job'] = $this->dropdown->dropdown_job();
 			$send['dropdown_employmentLevel'] = $this->dropdown->dropdown_employmentLevel();
-
+			$send['dropdown_sectors'] = $this->dropdown->dropdown_sectors();
+			
 			$this->load->view('employer/template',$send);
 		}
 		
