@@ -38,4 +38,16 @@ class Dropdown extends CI_Model{
 		}
 		return($data);
 	}
+	
+	public function dropdown_sectors(){
+		$this->db->select('idSectors,sectorTitle');
+		$record = $this->db->get('sectors');
+		
+		$data = array();
+		$data[0] = 'SELECT';
+		foreach($record->result() as $row){
+			$data[$row->idSectors] = $row->sectorTitle;
+		}
+		return ($data);
+	}
 }
