@@ -6,7 +6,7 @@ class search_Model extends CI_Model{
 			
 		$preferredJob = $this->input->post('preJob');
 		$selected_educationLevel = $this->input->post('educationLevel');
-		$noGCSE = $this->input->post('gcsePass');
+		$noGCSE = (int)$this->input->post('gcsePass');
 		$qualification_type = $this->input->post('qualificationType');
 		$proQua = $this->input->post('proQualification');
 		$skill = $this->input->post('skill');
@@ -29,12 +29,13 @@ class search_Model extends CI_Model{
 				where s.skillName = ? and eQua.qualificationType = ? and el.educationLevel = ? and jt.idjobTitles = ? 
 				and p.noOfGcses = ? and jobT.idjobTitles = ? and emL.idlevelsofemployment = ? ";*/
 		
-		$sql = "select idUser, forename1, surname 
+		$sql = "select idUser, forename1, surname, min(noofgcses), min(ideducationlevel) 
 				from (((((persons as p left join skills as s on p.iduser = s.persons_iduser) left join
 				educational_qualifications as eQua on p.iduser = eQua.persons_iduser) left join (job_preferences as jp left join job_titles as jpt on jp.jobtitles_idjobtitles=jpt.idjobtitles)
 				on p.iduser = jp.person_iduser) left join ((experiences as e left join job_titles as ejt on e.jobtitles_idjobtitles = ejt.idjobtitles) left join employment_levels as el on el.idlevelsofemployment = e.employmentlevels_idlevelsofemployment) on e.persons_iduser = p.iduser)
 				left join professional_qualifications as proQ on p.iduser = proQ.persons_iduser) left join education_levels as edul on edul.ideducationlevel = p.educationlevels_ideducationlevel
-				where s.skillname = ? and p.noofgcses = ? and eQua.qualificationType = ? and p.educationlevels_ideducationlevel = ? and jp.jobtitles_idjobtitles = ? and e.jobtitles_idjobtitles = ? and e.employmentlevels_idlevelsofemployment = ? and proQ.qualificationname =?";
+				where s.skillname = ? and p.noofgcses = ? and eQua.qualificationType = ? and p.educationlevels_ideducationlevel = ? and jp.jobtitles_idjobtitles = ? and e.jobtitles_idjobtitles = ? and e.employmentlevels_idlevelsofemployment = ? and proQ.qualificationname =?
+				group by iduser";
 		
 		$q = $this->db->query($sql,array($skill,$noGCSE,$qualification_type,$selected_educationLevel,$preferredJob,$selected_jobTitle,$selected_employmentLevels,$proQua));
 		//$q = $this->db->query($sql, array($skill,$qualification_type,$selected_educationLevel,$preferredJob,$noGCSE,$selected_jobTitle,$selected_employmentLevels));
@@ -65,7 +66,7 @@ class search_Model extends CI_Model{
 		
 		$preferredJob = $this->input->post('preJob');
 		$selected_educationLevel = $this->input->post('educationLevel');
-		$noGCSE = $this->input->post('gcsePass');
+		$noGCSE = (int)$this->input->post('gcsePass');
 		$qualification_type = $this->input->post('qualificationType');
 		$proQua = $this->input->post('proQualification');
 		$skill = $this->input->post('skill');
@@ -73,12 +74,13 @@ class search_Model extends CI_Model{
 		$selected_employmentLevels = $this->input->post('employmentLevels');
 		
 		
-		$sql = "select idUser, forename1, surname
+		$sql = "select idUser, forename1, surname, min(noofgcses)
 				from ((((persons as p left join skills as s on p.iduser = s.persons_iduser) left join
 				educational_qualifications as eQua on p.iduser = eQua.persons_iduser) left join (job_preferences as jp left join job_titles as jpt on jp.jobtitles_idjobtitles=jpt.idjobtitles)
 				on p.iduser = jp.person_iduser) left join ((experiences as e left join job_titles as ejt on e.jobtitles_idjobtitles = ejt.idjobtitles) left join employment_levels as el on el.idlevelsofemployment = e.employmentlevels_idlevelsofemployment) on e.persons_iduser = p.iduser)
 				left join professional_qualifications as proQ on p.iduser = proQ.persons_iduser
-				where s.skillname = ? or p.noofgcses = ? or eQua.qualificationType = ? or p.educationlevels_ideducationlevel = ? or jp.jobtitles_idjobtitles = ? or e.jobtitles_idjobtitles = ? or e.employmentlevels_idlevelsofemployment = ? or proQ.qualificationname =?";
+				where s.skillname = ? or p.noofgcses = ? or eQua.qualificationType = ? or p.educationlevels_ideducationlevel = ? or jp.jobtitles_idjobtitles = ? or e.jobtitles_idjobtitles = ? or e.employmentlevels_idlevelsofemployment = ? or proQ.qualificationname =?
+				group by iduser";
 		
 		$q = $this->db->query($sql,array($skill,$noGCSE,$qualification_type,$selected_educationLevel,$preferredJob,$selected_jobTitle,$selected_employmentLevels,$proQua));
 		//$q = $this->db->query($sql,array($skill,$selected_educationLevel,$selected_jobTitle,$qualification_type,$selected_employmentLevels,$noGCSE));
