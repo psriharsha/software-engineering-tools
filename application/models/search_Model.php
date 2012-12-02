@@ -49,7 +49,10 @@ class search_Model extends CI_Model{
 			
 		}
 		else {
+			if($skill=="" || $noGCSE==""|| $qualification_type=="" || $selected_educationLevel==0 || $preferredJob==0 || $selected_jobTitle==0 || $selected_employmentLevels == 0 || $proQua ==""){
 				$data = $this->getAllJobseeker(); 
+			}
+			else{ $data=array();}
 			
 		}
 
