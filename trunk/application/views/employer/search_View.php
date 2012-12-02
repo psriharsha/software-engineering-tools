@@ -23,15 +23,15 @@
 	</tr>
 	<tr>
 		<td><h5>number of GCSE pass: </h5></td>
-		<td><input type="text" name="gcsePass"/></td>
+		<td><input type="text" name="gcsePass" value=""/></td>
 	</tr>
 	<tr>
 		<td><h5>qualification type: </h5></td>
-		<td><input type="text" name="qualificationType"/></td> 
+		<td><input type="text" name="qualificationType" value =""/></td> 
 	</tr>
 	<tr>
 		<td><h5>professional qualification: </h5></td>
-		<td><input type="text" name="proQualification"/></td>
+		<td><input type="text" name="proQualification" value =""/></td>
 	</tr> 
 
 	</table>
@@ -42,7 +42,7 @@
 	<table id="qualification" width="550">
 	<tr>
 		<td><h5>skill:</h5></td>
-		<td><input type="text" name="skill"></td> 
+		<td><input type="text" name="skill" value=""></td> 
 	</tr>
 	<tr>
 		<td><h5>job title</h5></td>
