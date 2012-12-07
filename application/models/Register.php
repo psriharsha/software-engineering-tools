@@ -77,4 +77,9 @@ NULL ,";
 		return $this->db->update("persons",$data);
 	}
 	
+	public function getValues($table)
+	{
+		return $this->db->get($table);
+	}
+	
 }

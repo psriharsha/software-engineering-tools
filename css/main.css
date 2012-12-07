@@ -203,7 +203,7 @@ h2{
 	padding: .25em;
 }
 
-input[type=text],input[type=password]{
+input[type=text],input[type=password],select{
 	display: block;
 	margin-top: 1em;
 	margin-bottom: 1em;
