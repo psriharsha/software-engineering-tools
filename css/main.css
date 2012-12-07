@@ -350,3 +350,7 @@ select{
 	margin-left: 90%;	
 }
 
+.accordian span {
+	text-decoration:underline;
+	cursor:pointer;
+}

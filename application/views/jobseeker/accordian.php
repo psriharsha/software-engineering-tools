@@ -650,7 +650,7 @@ var open = true;
 					for(j=0;j<(idSplit.length-1);)
 					display += idSplit[j]+" has been added to your Educational Qualifications. <span id=\"edit3-"+idSplit[++j]+"\">Click Here to delete it.<br>";
 
-					append = "<span id = \"T"+table+"\">Click Here to add another Educational Qualification to tour Resume</span>";}				
+					append = "Click <span id = \"T"+table+"\">Here</span> to add another Educational Qualification to tour Resume";}				
 				open = false;
 			}
 						break;
@@ -664,7 +664,7 @@ var open = true;
 					for(j=0;j<(idSplit.length-1);)
 					display += idSplit[j]+" has been added to your Professional Qualifications. <span id=\"edit4-"+idSplit[++j]+"\">Click Here to delete it.</span><br>";
 
-					append = "<span id = \"T"+table+"\">Click Here to add another Professional Qualification to your Resume</span>";}
+					append = "Click <span id = \"T"+table+"\">Here</span> to add another Professional Qualification to your Resume";}
 				open = false;
 			}
 						break;
@@ -678,7 +678,7 @@ var open = true;
 					for(j=0;j<(idSplit.length-1);)
 					display += idSplit[j]+" has been added to your Experiences. <span id=\"edit5-"+idSplit[++j]+"\">Click Here to delete it.</span><br>";
 
-					append = "<span id = \"T"+table+"\">Click Here to add another Experience to your Resume</span>";}
+					append = "Click <span id = \"T"+table+"\"></span>Here to add another Experience to your Resume";}
 				open = false;
 			}
 						break;
@@ -693,7 +693,7 @@ var open = true;
 					for(j=0;j<(idSplit.length-1);)
 					display += idSplit[j]+" has been added to your Skills. <span id=\"edit6-"+idSplit[++j]+"\">Click Here to delete it.</span><br>";
 
-					append = "<span id = \"T"+table+"\">Click Here to add another Skill to your Resume</span>";}
+					append = "Click <span id = \"T"+table+"\">Here</span> to add another Skill to your Resume";}
 				open = false;
 			}
 						break;
@@ -707,7 +707,7 @@ var open = true;
 					for(j=0;j<(idSplit.length-1);)
 					display += idSplit[j]+" has been added as your Referee. <span id=\"edit7-"+idSplit[++j]+"\">Click Here to delete him/her.</span><br>";
 
-					append = "<span id = \"T"+table+"\">Click Here to add another Referee to Your Resume</span>";}
+					append = "Click <span id = \"T"+table+"\">Here</span> to add another Referee to Your Resume";}
 				open = false;
 			}
 						break;
