@@ -507,7 +507,7 @@ $('#skillform').click(function(){
 <tr>
 <td>Title</td>
 <td>
-<select name="title" size="1">
+<select id="title" size="1">
 <option value="Mr">Mr</option>
 <option value="Ms">Ms</option>
 <option value="Mrs">Mrs</option>
@@ -558,6 +558,7 @@ $('#refform').click(function(){
 			contactPhone : $('#refcontact').val(),
 			relationship : $('#reftype').val()
 	};
+	alert($('#title').val());
 	$.ajax({
 		url: "<?php echo base_url()?>index.php/jobseeker/Profile/saveRef",
 		type: 'POST',
