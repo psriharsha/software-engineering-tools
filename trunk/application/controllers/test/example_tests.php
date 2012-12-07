@@ -1,11 +1,15 @@
 <?php
 require_once(APPPATH . '/controllers/test/Toast.php');
+require_once(APPPATH . 'controllers/login.php');
+
 
 class Example_tests extends Toast
 {
 	function Example_tests()
 	{
 		parent::Toast(__FILE__);
+		$this->load->model('Register','modelo');
+		$this->load->library('form_validation');
 		// Load any models, libraries etc. you need here
 	}
 
@@ -13,8 +17,13 @@ class Example_tests extends Toast
 	 * OPTIONAL; Anything in this function will be run before each test
 	 * Good for doing cleanup: resetting sessions, renewing objects, etc.
 	 */
-	function _pre() {}
+	function _pre() {
+	
+	
+	
+	}
 
+	
 	/**
 	 * OPTIONAL; Anything in this function will be run after each test
 	 * I use it for setting $this->message = $this->My_model->getError();
@@ -59,6 +68,28 @@ class Example_tests extends Toast
 
 		$this->message = '$a || $b';
 	}
+	
+	function test_register_pass()
+	{
+		$this->_assert_true($this->form_validation);
+		$data = array(
+			'forename1' => 'ename',
+			'surname' => 'elast',
+			'username' => 'example@hot.com',
+			'password' => 'test');
+		
+		$persons = $this->modelo->createJobseeker($data);		
+	}
+	
+	function test_register_fail()
+	{
+		$this->_assert_false($this->form_validation->run());
+		/*$this->login = new Login();
+		$signup = $this->login->signup();
+		$this->_assert_true($signup);*/
+	}
+	
+
 
 }
 
