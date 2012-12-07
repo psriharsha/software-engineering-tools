@@ -570,6 +570,72 @@ $('#refform').click(function(){
 });
 function getdata(id)
 {
+
+
+	$.ajax({
+		url: "<?php echo base_url()?>index.php/jobseeker/Profile/getEduLevel",
+		type: 'POST',
+		success: function(msg){
+			var finalMessage = "",stringSplit;
+			stringSplit = msg.split("|");
+			var first = false;
+			for(i=0;i<(stringSplit.length-1);i++)
+			{
+				if(first == true)
+				first = false;
+				else
+					first = true;
+				if(first == true)
+				finalMessage += "<option value=\""+stringSplit[i]+"\">";
+				else
+					finalMessage += stringSplit[i]+"</option>";
+			} 
+			$('#edulevel').html(finalMessage);
+		}
+	});
+	$.ajax({
+		url: "<?php echo base_url()?>index.php/jobseeker/Profile/getAllSectors",
+		type: 'POST',
+		success: function(msg){
+			var finalMessage = "",stringSplit;
+			stringSplit = msg.split("|");
+			var first = false;
+			for(i=0;i<(stringSplit.length-1);i++)
+			{
+				if(first == true)
+				first = false;
+				else
+					first = true;
+				if(first == true)
+				finalMessage += "<option value=\""+stringSplit[i]+"\">";
+				else
+					finalMessage += stringSplit[i]+"</option>";
+			} 
+			$('#sector').html(finalMessage);
+		}
+	});
+	$.ajax({
+		url: "<?php echo base_url()?>index.php/jobseeker/Profile/getJobTitles",
+		type: 'POST',
+		success: function(msg){
+			var finalMessage = "",stringSplit;
+			stringSplit = msg.split("|");
+			var first = false;
+			for(i=0;i<(stringSplit.length-1);i++)
+			{
+				if(first == true)
+				first = false;
+				else
+					first = true;
+				if(first == true)
+				finalMessage += "<option value=\""+stringSplit[i]+"\">";
+				else
+					finalMessage += stringSplit[i]+"</option>";
+			} 
+			$('#jobtitle').html(finalMessage);
+		}
+	});
+	
 	var what1="", what2="", where="";
 	switch(id)
 	{

@@ -161,6 +161,12 @@ class Profile extends CI_Controller {
 		echo $res;
 	}
 	
+	public function getInit()
+	{
+		$id = $this->input->post('id');
+		echo $id;
+	}
+	
 	public function deleteBySpan()
 	{
 		$data['from'] = $this->input->post('from');
@@ -183,6 +189,48 @@ class Profile extends CI_Controller {
 		else
 			$final = "Error";
 		echo $final;
+	}
+	
+	public function getEduLevel(){
+		$result = $this->Register->getValues('education_levels');
+		$finalMessage = null;
+		if($result->num_rows()>0)
+		{
+			foreach($result->result() as $row)
+			{
+				$finalMessage .= $row->idEducationLevel."|";
+				$finalMessage .= $row->educationLevel."|";
+			}
+		}
+		echo $finalMessage;
+	}
+	
+	public function getAllSectors(){
+		$result = $this->Register->getValues('sectors');
+		$finalMessage = null;
+		if($result->num_rows()>0)
+		{
+			foreach($result->result() as $row)
+			{
+				$finalMessage .= $row->idSectors."|";
+				$finalMessage .= $row->sectorTitle."|";
+			}
+		}
+		echo $finalMessage;
+	}
+	
+	public function getJobTitles(){
+		$result = $this->Register->getValues('job_titles');
+		$finalMessage = null;
+		if($result->num_rows()>0)
+		{
+			foreach($result->result() as $row)
+			{
+				$finalMessage .= $row->idJobTitles."|";
+				$finalMessage .= $row->jobTitle."|";
+			}
+		}
+		echo $finalMessage;
 	}
 	
 }
