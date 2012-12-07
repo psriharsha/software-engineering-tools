@@ -508,8 +508,9 @@ $('#skillform').click(function(){
 <td>Title</td>
 <td>
 <select name="title" size="1">
-<option>Mr</option>
-<option>Mrs</option>
+<option value="Mr">Mr</option>
+<option value="Ms">Ms</option>
+<option value="Mrs">Mrs</option>
 </select>
 </td>
 </tr>

@@ -16,7 +16,7 @@
  */
 
 
-class Toast_all extends Controller
+class Toast_all extends CI_Controller
 {
 	// The folder INSIDE /controllers/ where the test classes are located
 	// TODO: autoset
@@ -34,7 +34,7 @@ class Toast_all extends Controller
 
 	function Toast_all()
 	{
-		parent::Controller();
+		parent::__construct();
 	}
 
 	function index()
