@@ -25,10 +25,11 @@ class Profile extends CI_Controller {
 		$data['gcseMathsGrade'] = $this->input->post('gcsemath');
 		$data['studentStatus'] = $this->input->post('stusta');
 		$this->load->model('Register');
-		$res = $this->Register->editDetails($data);
-		if($res)
-			$final = "Personal Data Saved";
-		else $final = "Error";
+		$res = $this->Register->updateData($data);
+		if($res == 1)
+			$final = "Contact Information Saved";
+		else
+			$final = "Error";
 		echo $final;
 	}
 	
@@ -39,8 +40,8 @@ class Profile extends CI_Controller {
 		$data['landline'] = $this->input->post('land');
 		$data['contactPreference'] = $this->input->post('conpre');
 		$this->load->model('Register');
-		$res = $this->Register->updateContact($data);
-		if($res)
+		$res = $this->Register->updateData($data);
+		if($res == 1)
 			$final = "Contact Information Saved";
 		else
 			$final = "Error";
@@ -48,6 +49,7 @@ class Profile extends CI_Controller {
 	}
 	
 	public function saveEdu(){
+		$data['Persons_idUser'] = $this->session->userdata('user_id');
 		$data['qualificationType'] = $this->input->post('qualificationType');
 		$data['courseName'] = $this->input->post('courseName');
 		$data['EducationLevels_idEducationLevel'] = $this->input->post('EducationLevels_idEducationLevel');
@@ -60,9 +62,9 @@ class Profile extends CI_Controller {
 		$data['verified'] = $this->input->post('verified');
 		$data['howVerified'] = $this->input->post('howVerified');
 		$this->load->model('Register');
-		$res = $this->Register->insEdu($data);
-		if($res)
-			$final = "Contact Information Saved";
+		$res = $this->Register->insertData("educational_qualifications",$data);
+		if($res == 1)
+			$final = "Your Experience has been Saved";
 		else
 			$final = "Error";
 		echo $final;
@@ -87,6 +89,7 @@ class Profile extends CI_Controller {
 	}
 	
 	public function saveExp(){
+		$data['Persons_idUser'] = $this->session->userdata('user_id');
 		$data['JobTitles_idJobTitles'] = $this->input->post('JobTitles_idJobTitles');
 		$data['otherJobTitle'] = $this->input->post('otherJobTitle');
 		$data['EmploymentLevels_idLevelsOfEmployment'] = $this->input->post('EmploymentLevels_idLevelsOfEmployment');
@@ -97,15 +100,16 @@ class Profile extends CI_Controller {
 		$data['howVerified'] = $this->input->post('howVerified');
 		$data['verified'] = $this->input->post('verified');
 		$this->load->model('Register');
-		$res = $this->Register->insExp($data);
-		if($res)
-			$final = "Experiences Saved";
+		$res = $this->Register->insertData("experiences",$data);
+		if($res == 1)
+			$final = "Your Experience has been Saved";
 		else
 			$final = "Error";
 		echo $final;
 	}
 	
 	public function saveRef(){
+		$data['Persons_idUser'] = $this->session->userdata('user_id');
 		$data['title'] = $this->input->post('title');
 		$data['forename'] = $this->input->post('forename');
 		$data['surname'] = $this->input->post('surname');
@@ -113,23 +117,24 @@ class Profile extends CI_Controller {
 		$data['contactPhone'] = $this->input->post('contactPhone');
 		$data['relationship'] = $this->input->post('relationship');
 		$this->load->model('Register');
-		$res = $this->Register->insRef($data);
-		if($res)
-			$final = "Reference Saved";
+		$res = $this->Register->insertData("referees",$data);
+		if($res == 1)
+			$final = $data['title'].".".$data['surname']." has been added to your referees";
 		else
 			$final = "Error";
 		echo $final;
 	}
 	
 	public function saveSkill(){
+		$data['Persons_idUser'] = $this->session->userdata('user_id');
 		$data['skillName'] = $this->input->post('skillName');
 		$data['skillLevel'] = $this->input->post('skillLevel');
 		$data['verified'] = $this->input->post('verified');
 		$data['howVerified'] = $this->input->post('howVerified');
 		$this->load->model('Register');
-		$res = $this->Register->insSkill($data);
-		if($res)
-			$final = "Skill Saved";
+		$res = $this->Register->insertData("skills",$data);
+		if($res == 1)
+			$final = $data['skillName']." has been added to your Skills";
 		else
 			$final = "Error";
 		echo $final;

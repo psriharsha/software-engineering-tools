@@ -31,7 +31,7 @@ $(document).ready(function(){
 	
 	$('.accordian ul li').click(function(){
 		var id = $(this).attr('id');
-		if((id != curr)&&(id != "acc1" || initial == false)&& (id != "acc1c" && id != "acc2c" && id != "acc3c" && id != "acc4c" && id != "acc5c" && id != "acc6c"))
+		if((id != curr)&&(id != "acc1" || initial == false)&& (id != "acc1c" && id != "acc2c" && id != "acc3c" && id != "acc4c" && id != "acc5c" && id != "acc6c"&& id != "acc7c"))
 		{
 			$('.accordian ul li:nth-child(even)').slideUp(1000);	
 		}

@@ -2,7 +2,7 @@
 <ul>
 <li id="acc1">Personal Details</li>
 <li id="acc1c">
-<div id="temp1" class="postMessage"></div>
+<div id="temp1" class="postMessage"><span id="edit1"></span></div>
 <table class="accTable" cellspacing="10px" id="personalTable">
 <tr>
 <td>Address Line 1</td>
@@ -111,7 +111,7 @@ function send(dataSend){
 </li>
 <li id="acc2">Contact Details</li>										<!--  Accordian 2  -->
 <li id="acc2c">
-<div id="temp2" class="postMessage"></div>
+<div id="temp2" class="postMessage"><span id="edit2"></span></div>
 <table class="accTable" cellspacing="10px" id="contactTable">
 <tr>
 <td>Alternate Mail</td>
@@ -741,6 +741,9 @@ var open = true;
 						}
 					});
 				}
+				else if(toSend == 1)
+					$('#personalTable').slideDown('slow');
+				else $('#contactTable').slideDown('slow');
 				}
 				else
 					$('#'+table).show();
