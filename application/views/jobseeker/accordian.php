@@ -558,7 +558,6 @@ $('#refform').click(function(){
 			contactPhone : $('#refcontact').val(),
 			relationship : $('#reftype').val()
 	};
-	alert($('#title').val());
 	$.ajax({
 		url: "<?php echo base_url()?>index.php/jobseeker/Profile/saveRef",
 		type: 'POST',
