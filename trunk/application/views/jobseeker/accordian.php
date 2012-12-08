@@ -1,3 +1,4 @@
+<?php echo validation_errors()."errors"; ?>
 <div class="accordian">
 <ul>
 <li id="acc1">Personal Details</li>
@@ -6,33 +7,33 @@
 <table class="accTable" cellspacing="10px" id="personalTable">
 <tr>
 <td>Address Line 1</td>
-<td><input id="add1" type="text" size="20" maxlength="20" />
+<td><input id="add1" class="add1" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Address Line 2</td>
-<td><input id="add2" type="text" size="20" maxlength="20" />
+<td><input id="add2" class="add2" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Town</td>
-<td><input id="town" type="text" size="20" maxlength="20" />
+<td><input id="town" class="town" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Postcode</td>
-<td><input id="postcode" type="text" size="20" maxlength="20" />
+<td><input id="postcode" class="postcode" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Personal URL</td>
-<td><input id="perurl" type="text" size="20" maxlength="20" />
+<td><input id="perurl" class="perurl" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Gender</td>
 <td>
-<select id="female" size="1">
+<select id="female" class="female" size="1">
 <option value="male">Male</option>
 <option value="female">Female</option>
 </select>
@@ -40,13 +41,13 @@
 </tr>
 <tr>
 <td>Work Statement Issued by</td>
-<td><input id="authwork" type="text" size="20" maxlength="20" />
+<td><input id="authwork" class="authwork" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Number of GCSEs passed</td>
 <td>
-<select id="noofgcse">
+<select id="noofgcse" class="noofgcse">
 <?php 
 for ($i=1; $i<=20; $i++)
 	echo "<option value= \"".$i."\">".($i)."</option>";
@@ -56,18 +57,18 @@ for ($i=1; $i<=20; $i++)
 </tr>
 <tr>
 <td>GCSE English Grade</td>
-<td><input id="gcseeng" type="text" size="20" maxlength="20" />
+<td><input id="gcseeng" class="gcseeng" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>GCSE Math Grade</td>
-<td><input id="gcsemath" type="text" size="20" maxlength="20" />
+<td><input id="gcsemath" class="gcsemath" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Current Student Status</td>
 <td>
-<select id="stusta">
+<select id="stusta" class="stusta">
 <option>Part Time</option>
 <option>Full Time</option>
 <option>Not a Student</option>
@@ -103,7 +104,7 @@ function send(dataSend){
 		data: dataSend,
 		success: function(msg){
 			$('#temp1').html(msg);
-			$('#personalTable').slideUp("slow");
+			$('#personalTable').slideUp("slow");			
 		}
 	});
 }
@@ -170,12 +171,12 @@ $('#conform').click(function(){
 <table class="accTable" cellspacing="10px" id="eduTable">
 <tr>
 <td>Qualification</td>
-<td><input id="qual" type="text" size="40" maxlength="20" />
+<td><input id="qual" name="qual" type="text" size="40" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Course</td>
-<td><input id="course" type="text" size="40" maxlength="20" />
+<td><input id="course" name="course" type="text" size="40" maxlength="20" />
 </td>
 </tr>
 <tr>
@@ -206,7 +207,7 @@ $('#conform').click(function(){
 </tr>
 <tr>
 <td>Institution Name</td>
-<td><input id="insti" type="text" size="40" maxlength="20" />
+<td><input id="insti" name="insti" type="text" size="40" maxlength="20" />
 </td>
 </tr>
 <tr>
@@ -276,7 +277,7 @@ $('#eduform').click(function(){
 <table class="accTable" cellspacing="10px" id="proTable">
 <tr>
 <td>Qualification</td>
-<td><input id="qualification" type="text" size="20" maxlength="20" />
+<td><input id="qualification" name="qualification" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
@@ -294,12 +295,12 @@ $('#eduform').click(function(){
 </tr>
 <tr>
 <td>Awarding Body</td>
-<td><input id="awardingbody" type="text" size="20" maxlength="20" />
+<td><input id="awardingbody" name="awardingbody" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>
 <td>Year Obtained</td>
-<td><input id="profyear" type="text" size="20" maxlength="20" />
+<td><input id="profyear" name="profyear" type="text" size="20" maxlength="20" />
 </td>
 </tr>
 <tr>

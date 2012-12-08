@@ -9,6 +9,11 @@ class Profile extends CI_Controller {
 	
 	public function savePersonal()
 	{
+		$this->load->helper(array('form', 'url'));
+		
+		$this->load->library('form_validation');
+		
+		if($this->form_validation->run('personal')){
 		$data['addressLine1'] = $this->input->post('add1');
 			$data['addressLine2'] = $this->input->post('add2');
 		$data['town'] = $this->input->post('town');
@@ -31,10 +36,16 @@ class Profile extends CI_Controller {
 		else
 			$final = "Error";
 		echo $final;
+		}
+		else 
+		{
+			$this->load->view('jobseeker/errors1');
+		}
 	}
 	
 	public function saveContact()
 	{
+		if($this->form_validation->run('contact')){
 		$data['secondEmail'] = $this->input->post('altmail');
 		$data['mobile'] = $this->input->post('mobile');
 		$data['landline'] = $this->input->post('land');
@@ -46,9 +57,15 @@ class Profile extends CI_Controller {
 		else
 			$final = "Error";
 		echo $final;
+		}
+		else 
+		{
+			$this->load->view('jobseeker/errors1');
+		}
 	}
 	
 	public function saveEdu(){
+		if(true){
 		$data['Persons_idUser'] = $this->session->userdata('user_id');
 		$data['qualificationType'] = $this->input->post('qualificationType');
 		$data['courseName'] = $this->input->post('courseName');
@@ -68,9 +85,32 @@ class Profile extends CI_Controller {
 		else
 			$final = "Error";
 		echo $final;
+		}
+		else 
+		{
+			$this->load->view('jobseeker/errors1');
+		}
 	}
 	
 	public function savePro(){
+		$config = array(
+				array(
+						'field' => 'profyear',
+						'label' => '\'Year Obtained\'',
+						'rules' => 'numeric'
+				),
+				array(
+						'field' => 'awardingbody',
+						'label' => '\'Awarding Body\'',
+						'rules' => 'required'
+				),
+				array(
+						'field' => 'qualification',
+						'label' => '\'Qualification\'',
+						'rules' => 'required'
+				));
+		$this->form_validation->set_rules($config);
+		if(true){
 		$data['qualificationName'] = $this->input->post('qualificationName');
 		$data['Sectors_idSectors'] = $this->input->post('Sectors_idSectors');
 		$data['otherSector'] = $this->input->post('otherSector');
@@ -85,7 +125,11 @@ class Profile extends CI_Controller {
 			$final = "Professional Qualification Saved";
 		else
 			$final = "Error";
-		echo $final;
+		echo $final;}
+		else 
+		{
+			$this->load->view('jobseeker/errors1');
+		}
 	}
 	
 	public function saveExp(){
