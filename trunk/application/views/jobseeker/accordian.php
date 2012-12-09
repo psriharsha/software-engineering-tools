@@ -450,7 +450,7 @@ $('#expform').click(function(){
 <table class="accTable" cellspacing="10px" id="skillTable">
 <tr>
 <td>Skill Name</td>
-<td><input id="skillName" type="text" size="20" maxlength="20" /></td>
+<td><input id="skillName" type="text" size="40" maxlength="40" /></td>
 </tr>
 <tr>
 <td>Skill Level</td>
