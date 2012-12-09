@@ -36,36 +36,77 @@ $config = array(
 				),
 		'qualification' => array(
 				array(
-						'field' => 'qual',
+						'field' => 'qualificationType',
 						'label' => '\'Qualification\'',
 						'rules' => 'required'
 				),
 				array(
-						'field' => 'course',
+						'field' => 'courseName',
 						'label' => '\'Course\'',
 						'rules' => 'required'
 				),
 				array(
-						'field' => 'insti',
+						'field' => 'nameOfInstitutions',
 						'label' => '\'Institution\'',
 						'rules' => 'required'
 				)
 		),
 		'professional' => array(
 				array(
-						'field' => 'profyear',
+						'field' => 'qualificationName',
+						'label' => '\'Qualification\'',
+						'rules' => 'required|alpha'
+				),
+				array(
+						'field' => 'awardingBody',
+						'label' => '\'Awarding Body\'',
+						'rules' => 'required|alpha'
+				),
+				array(
+						'field' => 'yearObtained',
 						'label' => '\'Year Obtained\'',
 						'rules' => 'numeric'
+				)
+		),
+		'experience' => array(
+				array(
+						'field' => 'employerName',
+						'label' => '\'Company Name\'',
+						'rules' => 'required|alpha'
 				),
 				array(
-						'field' => 'awardingbody',
-						'label' => '\'Awarding Body\'',
+						'field' => 'dateStarted',
+						'label' => '\'Date Started\'',
 						'rules' => 'required'
 				),
 				array(
-						'field' => 'qualification',
-						'label' => '\'Qualification\'',
+						'field' => 'keyDuties',
+						'label' => '\'Key Duties\'',
 						'rules' => 'required'
+				)
+		),
+		'skill' => array(
+				array(
+						'field' => 'skillName',
+						'label' => '\'Skill Name\'',
+						'rules' => 'required'
+				)
+				),
+		'references' => array(
+				array(
+						'field' => 'forename',
+						'label' => '\'First Name\'',
+						'rules' => 'required|alpha'
+				),
+				array(
+						'field' => 'email',
+						'label' => '\'Email Id\'',
+						'rules' => 'required|valid_email'
+				),
+				array(
+						'field' => 'contactPhone',
+						'label' => '\'Contact Number\'',
+						'rules' => 'required|numeric'
 				)
 		)
 		);

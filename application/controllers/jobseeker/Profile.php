@@ -65,7 +65,7 @@ class Profile extends CI_Controller {
 	}
 	
 	public function saveEdu(){
-		if(true){
+		if($this->form_validation->run('qualification')){
 		$data['Persons_idUser'] = $this->session->userdata('user_id');
 		$data['qualificationType'] = $this->input->post('qualificationType');
 		$data['courseName'] = $this->input->post('courseName');
@@ -93,7 +93,7 @@ class Profile extends CI_Controller {
 	}
 	
 	public function savePro(){
-		$config = array(
+		/*$config = array(
 				array(
 						'field' => 'profyear',
 						'label' => '\'Year Obtained\'',
@@ -108,9 +108,9 @@ class Profile extends CI_Controller {
 						'field' => 'qualification',
 						'label' => '\'Qualification\'',
 						'rules' => 'required'
-				));
-		$this->form_validation->set_rules($config);
-		if(true){
+				));*/
+		//$this->form_validation->set_rules($config);
+		if($this->form_validation->run('professional')){
 		$data['qualificationName'] = $this->input->post('qualificationName');
 		$data['Sectors_idSectors'] = $this->input->post('Sectors_idSectors');
 		$data['otherSector'] = $this->input->post('otherSector');
@@ -133,6 +133,7 @@ class Profile extends CI_Controller {
 	}
 	
 	public function saveExp(){
+		if($this->form_validation->run('experience')){
 		$data['Persons_idUser'] = $this->session->userdata('user_id');
 		$data['JobTitles_idJobTitles'] = $this->input->post('JobTitles_idJobTitles');
 		$data['otherJobTitle'] = $this->input->post('otherJobTitle');
@@ -150,9 +151,14 @@ class Profile extends CI_Controller {
 		else
 			$final = "Error";
 		echo $final;
+		}else 
+		{
+			$this->load->view('jobseeker/errors1');
+		}
 	}
 	
 	public function saveRef(){
+		if($this->form_validation->run('references')){
 		$data['Persons_idUser'] = $this->session->userdata('user_id');
 		$data['title'] = $this->input->post('title');
 		$data['forename'] = $this->input->post('forename');
@@ -167,9 +173,14 @@ class Profile extends CI_Controller {
 		else
 			$final = "Error";
 		echo $final;
+		}else
+		{
+			$this->load->view('jobseeker/errors1');
+		}
 	}
 	
 	public function saveSkill(){
+		if($this->form_validation->run('skill')){
 		$data['Persons_idUser'] = $this->session->userdata('user_id');
 		$data['skillName'] = $this->input->post('skillName');
 		$data['skillLevel'] = $this->input->post('skillLevel');
@@ -182,6 +193,10 @@ class Profile extends CI_Controller {
 		else
 			$final = "Error";
 		echo $final;
+		}else 
+		{
+			$this->load->view('jobseeker/errors1');
+		}
 	}
 	
 	public function getData()
