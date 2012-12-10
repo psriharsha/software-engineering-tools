@@ -375,3 +375,10 @@ select{
     table-layout: fixed;
     width: 300px;
 }
+
+#genMessage{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-weight: bold;
+}
