@@ -68,4 +68,25 @@ $(document).ready(function(){
 		$('#profveriby').attr('disabled','disabled');
 	});
 	
+	$('#expveri').blur(function(){
+		if($(this).val() == 0)
+		$('#expveriby').removeAttr('disabled');
+		else if($(this).val() == 1)
+		$('#expveriby').attr('disabled','disabled');
+	});
+	
+	$('#skillVeri').blur(function(){
+		if($(this).val() == 0)
+		$('#skillVeriBy').removeAttr('disabled');
+		else if($(this).val() == 1)
+		$('#skillVeriBy').attr('disabled','disabled');
+	});
+	
+	$('#jobtitle').blur(function(){
+		if($(this).val() == "")
+		$('#otherjobtitle').removeAttr('disabled');
+		else 
+		$('#otherjobtitle').attr('disabled','disabled');
+	});
+	
 });
