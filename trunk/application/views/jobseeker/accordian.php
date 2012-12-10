@@ -75,6 +75,14 @@ for ($i=1; $i<=20; $i++)
 </td>
 </tr>
 <tr>
+<td>Job Preference</td>
+<td>
+<select id="jobpref" class="stusta">
+<option value="">Select</option>
+</select>
+</td>
+</tr>
+<tr>
 <td colspan="2" align="center" style="padding-top: 30px"><span class="sendData" id="perform">Submit</span>
 </td>
 </tr>
@@ -92,7 +100,8 @@ $('#perform').click(function(){
 			noofgcse : $('#noofgcse').val(),
 			gcseeng : $('#gcseeng').val(),
 			gcsemath : $('#gcsemath').val(),
-			stusta : $('#stusta').val()
+			stusta : $('#stusta').val(),
+			jobpref : $('#jobpref').val()
 	}
 	send(data);
 });
@@ -358,8 +367,7 @@ $('#proform').click(function(){
 <td>Job Title</td>
 <td>
 <select id="jobtitle">
-<option value="3">Software Developer</option>
-<option value="4">Web Developer</option>
+<option value="">Select</option>
 <option value="NULL">Other</option>
 </select>
 </td>
@@ -621,6 +629,7 @@ function getdata(id)
 			var finalMessage = "",stringSplit;
 			stringSplit = msg.split("|");
 			var first = false;
+			finalMessage = "<option value=\"\">Select</option>";
 			for(i=0;i<(stringSplit.length-1);i++)
 			{
 				if(first == true)
@@ -633,6 +642,7 @@ function getdata(id)
 					finalMessage += stringSplit[i]+"</option>";
 			} 
 			$('#jobtitle').html(finalMessage);
+			$('#jobpref').html(finalMessage);
 		}
 	});
 	

@@ -109,24 +109,24 @@ class Example_tests extends Toast
 		$this->message = $r;
 	}
 	
-	function do_post_request($url, $data, $optional_headers = null)
+	function do_post_request($url, $data, $optional_headers)
 	{
 		$params = array('http' => array(
 				'method' => 'POST',
-				'content' => ($data)
+				'content' => $data
 		));
-		if ($optional_headers !== null) {
-			$params['http']['header'] = $optional_headers;
-		}
-		$ctx = stream_context_create($params);
-		$fp = @fopen($url, 'r', false, $ctx);
-		if (!$fp) {
-			throw new Exception("Problem with $url, $php_errormsg");
-		}
-		$response = @stream_get_contents($fp);
-		if ($response === false) {
-			throw new Exception("Problem reading data from $url, $php_errormsg");
-		}
+		$fields_string = "";
+		
+		foreach($data as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+		rtrim($fields_string, '&');
+		
+		$ch = curl_init();
+		curl_setopt($ch,CURLOPT_URL, $url);
+		curl_setopt($ch,CURLOPT_POST, count($data));
+		curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+ 
+$response = curl_exec($ch);
+curl_close($ch);
 		return $response;
 	}
 

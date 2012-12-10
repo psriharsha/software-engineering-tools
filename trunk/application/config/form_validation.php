@@ -14,7 +14,17 @@ $config = array(
 				array(
 						'field' => 'postcode',
 						'label' => '\'Postcode\'',
-						'rules' => 'alpha_numeric'
+						'rules' => 'required'
+				),
+				array(
+						'field' => 'gcseeng',
+						'label' => '\'GCSE English Grade\'',
+						'rules' => 'alpha|max_length[1]'
+				),
+				array(
+						'field' => 'gcsemath',
+						'label' => '\'GCSE Math Grade\'',
+						'rules' => 'alpha|max_length[1]'
 				)
 				),
 		'contact' => array(
@@ -55,12 +65,12 @@ $config = array(
 				array(
 						'field' => 'qualificationName',
 						'label' => '\'Qualification\'',
-						'rules' => 'required|alpha'
+						'rules' => 'required'
 				),
 				array(
 						'field' => 'awardingBody',
 						'label' => '\'Awarding Body\'',
-						'rules' => 'required|alpha'
+						'rules' => 'required'
 				),
 				array(
 						'field' => 'yearObtained',
