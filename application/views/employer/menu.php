@@ -1,7 +1,9 @@
 <div id= "menu">
 <ul>
 <li><a href="<?php echo base_url();?>index.php/employer/search_Control">Home</a></li>
-<li><a href="<?php echo base_url();?>index.php/Test/example_tests">Unit Testing</a></li>
+<li><a href="<?php echo base_url();?>index.php/employer/manage_controller">Manage</a></li>
+
+
 </ul>
 </div>
 <div id="logout">

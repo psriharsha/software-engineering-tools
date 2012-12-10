@@ -247,6 +247,11 @@ input[type=submit]:hover, .sendData:hover{
 	margin: 0 auto 0;
 }
 
+#manage{
+	width:70%;
+	margin: 0 auto 0;
+}
+
 #register{
 	width:30%;
 	float:centre;
@@ -361,3 +366,12 @@ select{
 	padding:0.5em 0.5em 0.5em 0.5em;
 	width: 300px;
 	}
+#jobPreference td{
+    table-layout: fixed;
+    width: 200px;
+}
+
+#qualification td{
+    table-layout: fixed;
+    width: 300px;
+}
