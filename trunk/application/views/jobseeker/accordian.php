@@ -1,3 +1,4 @@
+<div id="genMessage">Please click on the section headings to move between different sections</div>
 <div class="accordian">
 <ul>
 <li id="acc1">Personal Details</li>
@@ -393,12 +394,12 @@ $('#proform').click(function(){
 </td>
 </tr>
 <tr>
-<td>Date Started (Format: Year-Month-Date)</td>
+<td>Date Started (Format: YYYY-MM-DD)</td>
 <td><input id="datestart" type="text" size="20" value="2010-12-31" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td>Date Ended (Format: Year-Month-Date)</td>
+<td>Date Ended (Format: YYYY-MM-DD)</td>
 <td><input id="dateend" type="text" size="20" value="2010-12-31" maxlength="20" />
 </td>
 </tr>

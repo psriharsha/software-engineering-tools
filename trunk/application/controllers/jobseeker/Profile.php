@@ -38,7 +38,7 @@ class Profile extends CI_Controller {
 		$this->load->model('Register');
 		$res = $this->Register->updateData($data);
 		if($res == 1)
-			$final = "Contact Information Saved";
+			$final = "Personal Information Saved";
 		else
 			$final = "Error";
 		echo $final;
