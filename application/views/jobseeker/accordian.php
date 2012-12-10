@@ -641,8 +641,9 @@ function getdata(id)
 				else
 					finalMessage += stringSplit[i]+"</option>";
 			} 
-			$('#jobtitle').html(finalMessage);
 			$('#jobpref').html(finalMessage);
+			finalMessage += "<option value=\"\">Other</option>";
+			$('#jobtitle').html(finalMessage);
 		}
 	});
 	
