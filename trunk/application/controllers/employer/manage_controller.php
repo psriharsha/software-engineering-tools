@@ -27,6 +27,7 @@ class manage_controller extends CI_Controller{
 		$send['dropdown_sectors'] = $this->dropdown->dropdown_sectors();
 		$send['content'] = "employer/manage_view";
 		$send['content2'] = "employer/content2";
+		$send['errors'] = "";
 		$this->load->view('employer/template',$send);
 	}
 	
@@ -61,7 +62,7 @@ class manage_controller extends CI_Controller{
 	}
 	
 	public function inputJob()
-	{
+	{if(($this->input->post('sectorTxt')!=null)||($this->input->post('sector')!=0)){
 		$this->form_validation->set_rules('job','job', 'trim|is_unique[job_titles.jobtitle]');
 		$this->form_validation->set_rules('sectorTxt','sector','trim|is_unique[sectors.sectorTitle]');
 		if($this->form_validation->run() == FALSE)
@@ -91,6 +92,22 @@ class manage_controller extends CI_Controller{
 					$this->manage_model->addJob($data2);
 					$this->index();
 				}
+				else {
+					$this->onError("Select Sector from the drop down or Input a new sector in the text box provided");
+				}
 		}
+	}
+	else{
+		$this->onError("Select Sector from the drop down or Input a new sector in the text box provided");
+	} 
+	}
+	
+	public function onError($error){
+		$this->load->model('dropdown');
+		$send['dropdown_sectors'] = $this->dropdown->dropdown_sectors();
+		$send['content'] = "employer/manage_view";
+		$send['content2'] = "employer/content2";
+		$send['errors'] = $error;
+		$this->load->view('employer/template',$send);
 	}
 }
