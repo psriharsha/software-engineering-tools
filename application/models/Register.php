@@ -41,7 +41,7 @@ NULL ,";
 	{
 		$this->db->order_by($data['what2'], "asc");
 		if($data['where'] == "persons")
-			$res = $this->db->get_where($data['where'],array('idUser'=>$this->session->userdata('user_id')));
+			$res = $this->db->get_where("persons",array('idUser'=>$this->session->userdata('user_id')));
 		else 
 			$res = $this->db->get_where($data['where'],array('Persons_idUser'=>$this->session->userdata('user_id')));
 		return $res;
