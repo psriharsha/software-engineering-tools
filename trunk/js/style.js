@@ -47,6 +47,25 @@ $(document).ready(function(){
 		$('#contactTable').slideDown(1000);
 	});
 	
+	$('#veri').blur(function(){
+		if($(this).val() == 0)
+		$('#veriby').removeAttr('disabled');
+		else if($(this).val() == 1)
+		$('#veriby').attr('disabled','disabled');
+	});
 	
+	$('#sector').blur(function(){
+		if($(this).val() == 7)
+		$('#other').removeAttr('disabled');
+		else 
+		$('#other').attr('disabled','disabled');
+	});
+	
+	$('#profveri').blur(function(){
+		if($(this).val() == 0)
+		$('#profveriby').removeAttr('disabled');
+		else if($(this).val() == 1)
+		$('#profveriby').attr('disabled','disabled');
+	});
 	
 });

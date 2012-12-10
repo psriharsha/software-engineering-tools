@@ -244,7 +244,7 @@ $('#conform').click(function(){
 </tr>
 <tr>
 <td>Verified By</td>
-<td><input id="veriby" type="text" size="40" maxlength="20" />
+<td><input id="veriby" type="text" size="40" maxlength="20"/>
 </td>
 </tr>
 <tr>
@@ -298,7 +298,7 @@ $('#eduform').click(function(){
 </tr>
 <tr>
 <td>Other Sector</td>
-<td><input id="other" type="text" size="20" maxlength="20" />
+<td><input id="other" type="text" size="20" maxlength="20" disabled="disabled" />
 </td>
 </tr>
 <tr>
