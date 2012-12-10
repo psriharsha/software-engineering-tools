@@ -18,8 +18,7 @@ class Example_tests extends Toast
 	 * Good for doing cleanup: resetting sessions, renewing objects, etc.
 	 */
 	function _pre() {
-	
-	
+		$this->db = $this->load->database('testing',TRUE);
 	
 	}
 
@@ -28,7 +27,13 @@ class Example_tests extends Toast
 	 * OPTIONAL; Anything in this function will be run after each test
 	 * I use it for setting $this->message = $this->My_model->getError();
 	 */
-	function _post() {}
+	function _post() {
+		$table_names = array('educational_qualifications','job_preferences','employee','experiences','professional_qualifications','referees','skills',' persons');
+		foreach($table_names as $table){
+			$this->db->query('delete from '.$table);		
+		}
+		$this->db = $this->load->database('default',TRUE);
+	}
 
 
 	/* TESTS BELOW */
@@ -90,6 +95,40 @@ class Example_tests extends Toast
 	}
 	
 
+	function test_emptyDataSavePersonalTest(){
+		$data = array(
+				'addressLine1' => '',
+				'addressLine2' => '',
+				'town' => '',
+				'postcode' => '',
+				'personalUrl' => ''
+		);
+		$url = base_url().'index.php/jobseeker/profile/savePersonal';
+		$r = $this->do_post_request($url,$data,null);
+		$this->_assert_not_equals($r,"Contact Information Saved");
+		$this->message = $r;
+	}
+	
+	function do_post_request($url, $data, $optional_headers = null)
+	{
+		$params = array('http' => array(
+				'method' => 'POST',
+				'content' => ($data)
+		));
+		if ($optional_headers !== null) {
+			$params['http']['header'] = $optional_headers;
+		}
+		$ctx = stream_context_create($params);
+		$fp = @fopen($url, 'r', false, $ctx);
+		if (!$fp) {
+			throw new Exception("Problem with $url, $php_errormsg");
+		}
+		$response = @stream_get_contents($fp);
+		if ($response === false) {
+			throw new Exception("Problem reading data from $url, $php_errormsg");
+		}
+		return $response;
+	}
 
 }
 

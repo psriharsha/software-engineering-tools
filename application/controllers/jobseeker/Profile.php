@@ -81,7 +81,7 @@ class Profile extends CI_Controller {
 		$this->load->model('Register');
 		$res = $this->Register->insertData("educational_qualifications",$data);
 		if($res == 1)
-			$final = "Your Experience has been Saved";
+			$final = "Your Educational Qualification has been Saved";
 		else
 			$final = "Error";
 		echo $final;
