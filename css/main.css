@@ -355,3 +355,9 @@ select{
 	text-decoration:underline;
 	cursor:pointer;
 }
+
+#search select{
+	margin: 1em 1.5em 1em;
+	padding:0.5em 0.5em 0.5em 0.5em;
+	width: 300px;
+	}
