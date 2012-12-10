@@ -1,4 +1,3 @@
-<?php echo validation_errors()."errors"; ?>
 <div class="accordian">
 <ul>
 <li id="acc1">Personal Details</li>
