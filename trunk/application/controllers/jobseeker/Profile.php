@@ -155,7 +155,7 @@ class Profile extends CI_Controller {
 		if($res == 1)
 			$final = "Your Experience has been Saved";
 		else
-			$final = "Error";
+			$final = "\"Date started\" and \"Date Ended\" fields are not in correct format";
 		echo $final;
 		}else 
 		{
@@ -218,8 +218,11 @@ class Profile extends CI_Controller {
 			$res = "";
 			foreach($result->result() as $row)
 			{
-				if($data['where'] != "persons")
+				if($data['where'] != "persons"){
+					if($row->$data['what1']!=null)
 				$res .= $row->$data['what1']."|";
+				}
+				if($row->$data['what2']!=null)
 				$res .= $row->$data['what2']."#";
 			}
 		}

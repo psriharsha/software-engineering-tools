@@ -393,13 +393,13 @@ $('#proform').click(function(){
 </td>
 </tr>
 <tr>
-<td>Date Started</td>
-<td><input id="datestart" type="text" size="20" maxlength="20" />
+<td>Date Started (Format: Year-Month-Date)</td>
+<td><input id="datestart" type="text" size="20" value="2010-12-31" maxlength="20" />
 </td>
 </tr>
 <tr>
-<td>Date Ended</td>
-<td><input id="dateend" type="text" size="20" maxlength="20" />
+<td>Date Ended (Format: Year-Month-Date)</td>
+<td><input id="dateend" type="text" size="20" value="2010-12-31" maxlength="20" />
 </td>
 </tr>
 <tr>
@@ -428,6 +428,17 @@ $('#proform').click(function(){
 </table>
 <script type="text/javascript">
 $('#expform').click(function(){
+	var startBool = true,endBool = true;
+	var msg = "";
+	if($('#datestart').val().charAt(4)!='-')
+		startBool = false;
+	if($('#datestart').val().charAt(7)!='-')
+		startBool = false;
+	if($('#dateend').val().charAt(4)!='-')
+		endBool = false;
+	if($('#dateend').val().charAt(7)!='-')
+		endBool = false;
+	if(startBool && endBool){
 	var data = {
 			JobTitles_idJobTitles : $('#jobtitle').val(),
 			otherJobTitle : $('#otherjobtitle').val(),
@@ -448,6 +459,16 @@ $('#expform').click(function(){
 			$('#expTable').slideUp("slow");
 		}
 	});
+}
+	else
+	{
+		if(!startBool)
+			msg = "<br>\"Date started\" is not in correct format";
+		if(!endBool)
+			msg += "<br>\"Date Ended\" is not in correct format"
+				$('#temp5').append(msg);
+		$('#expTable').slideUp("slow");
+	}
 });
 </script>
 </li>
@@ -657,7 +678,7 @@ function getdata(id)
 				break;
 	case "acc2": what1 = "contactPreference";
 				where = "persons";
-				what2 = "addressLine1";
+				what2 = "contactPreference";
 				to = "temp2";
 				break;
 	case "acc3": what1 = "qualificationType";
@@ -705,14 +726,15 @@ var open = true;
 			switch(id)
 			{
 			case "acc1":
-				table = "personalTable"; if(msg != "NULL")
+				table = "personalTable"; if(msg != "")
 			{
 				display = "Personal Information is saved. Click <span id=\"edit1\">Here</span> to edit it.";
 				open = false;
 			}
 						break;
 			case "acc2": 
-				table = "contactTable";if(msg != "NULL")
+				table = "contactTable";
+				if(msg != "")
 			{
 				display = "Contact Information is saved. Click <span id=\"edit2\">Here</span> to edit it.";
 				open = false;
@@ -754,7 +776,7 @@ var open = true;
 				for(i=0;i<(stringSplit.length-1);i++){
 					var idSplit = stringSplit[i].split("|");
 					for(j=0;j<(idSplit.length-1);)
-					display += idSplit[j]+" has been added to your Experiences. Click <span id=\"edit5-"+idSplit[++j]+"\">Here</span> to delete it.<br>";
+					display += "Job role starting on "+idSplit[j]+" has been added to your Experiences. Click <span id=\"edit5-"+idSplit[++j]+"\">Here</span> to delete it.<br>";
 
 					append = "Click <span id = \"T"+table+"\">Here</span> to add another Experience to your CV";}
 				open = false;
