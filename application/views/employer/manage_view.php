@@ -1,5 +1,10 @@
 <div id="manage">
-<?php echo validation_errors('<p class="error">');?>
+<div id="adminErrors">
+<?php
+if($errors!=null)
+echo $errors;
+echo validation_errors('<p class="error">');?>
+</div>
 <form action="<?php echo base_url()?>index.php/employer/manage_controller/inputJob" method="post">
 <fieldset>
 
