@@ -99,7 +99,7 @@ class Example_tests extends Toast
 		$data = array(
 				'addressLine1' => '',
 				'addressLine2' => '',
-				'town' => '',
+				'town' => '3423fff',
 				'postcode' => '',
 				'personalUrl' => ''
 		);
@@ -111,23 +111,14 @@ class Example_tests extends Toast
 	
 	function do_post_request($url, $data, $optional_headers)
 	{
-		$params = array('http' => array(
-				'method' => 'POST',
-				'content' => $data
-		));
-		$fields_string = "";
-		
-		foreach($data as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-		rtrim($fields_string, '&');
-		
-		$ch = curl_init();
-		curl_setopt($ch,CURLOPT_URL, $url);
-		curl_setopt($ch,CURLOPT_POST, count($data));
-		curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
- 
-$response = curl_exec($ch);
-curl_close($ch);
-		return $response;
+	$r = new HttpRequest($url, HttpRequest::METH_POST);
+$r->addPostFields($data);
+try {
+    $x= $r->send();
+} catch (HttpException $ex) {
+    echo $ex;
+}
+		return $x->getBody();
 	}
 
 }
