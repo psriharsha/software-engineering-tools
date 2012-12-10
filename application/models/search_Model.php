@@ -22,7 +22,7 @@ class search_Model extends CI_Model{
 		if($noGCSE == "")
 			$con_noGCSE = "";
 		else
-			$con_noGCSE = " and p.noofgcses = '$noGCSE' ";
+			$con_noGCSE = " and p.noofgcses >= '$noGCSE' ";
 		
 		if($qualification_type == "")
 			$con_qualification_type = "";
@@ -58,7 +58,7 @@ class search_Model extends CI_Model{
 		$condition = $con_skill.$con_noGCSE.$con_qualification_type.$con_edu_level.$con_job_title.$con_job_title2.$con_em_level.$con_pro_qua." group by idUser";		
 		
 		
-		$sql = "select idUser, forename1, surname, noofgcses,ideducationlevel 
+		$sql = "select idUser, forename1, surname, noofgcses as mingcses ,ideducationlevel 
 				from (((((persons as p left join skills as s on p.iduser = s.persons_iduser) left join
 				educational_qualifications as eQua on p.iduser = eQua.persons_iduser) left join (job_preferences as jp left join job_titles as jpt on jp.jobtitles_idjobtitles=jpt.idjobtitles)
 				on p.iduser = jp.person_iduser) left join ((experiences as e left join job_titles as ejt on e.jobtitles_idjobtitles = ejt.idjobtitles) left join employment_levels as el on el.idlevelsofemployment = e.employmentlevels_idlevelsofemployment) on e.persons_iduser = p.iduser)
