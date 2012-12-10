@@ -35,6 +35,7 @@ $(document).ready(function(){
 		{
 			$('.accordian ul li:nth-child(even)').slideUp(1000);	
 		}
+		if(id.length==4)
 		getdata(id);
 		$('#'+id+'c').slideDown(1000);
 		if(id != "acc1")

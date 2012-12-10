@@ -29,6 +29,12 @@ class Profile extends CI_Controller {
 		$data['gcseEnglishGrade'] = $this->input->post('gcseeng');
 		$data['gcseMathsGrade'] = $this->input->post('gcsemath');
 		$data['studentStatus'] = $this->input->post('stusta');
+		if($this->input->post('jobpref')!=null)
+		{
+			$jobData['JobTitles_idJobTitles'] = $this->input->post('jobpref');
+			$jobData['person_idUser'] = $this->session->userdata('user_id');
+			$this->Register->insertData('job_preferences',$jobData);
+		}
 		$this->load->model('Register');
 		$res = $this->Register->updateData($data);
 		if($res == 1)
