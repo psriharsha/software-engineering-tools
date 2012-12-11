@@ -94,20 +94,6 @@ class Example_tests extends Toast
 		$this->_assert_true($signup);*/
 	}
 	
-
-	function test_emptyDataSavePersonalTest(){
-		$data = array(
-				'addressLine1' => '',
-				'addressLine2' => '',
-				'town' => '3423fff',
-				'postcode' => '',
-				'personalUrl' => ''
-		);
-		$url = base_url().'index.php/jobseeker/profile/savePersonal';
-		$r = $this->do_post_request($url,$data,null);
-		$this->_assert_not_equals($r,"Contact Information Saved");
-		$this->message = $r;
-	}
 	
 	function do_post_request($url, $data, $optional_headers)
 	{
