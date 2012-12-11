@@ -11,6 +11,7 @@
 h1 { font-size: 12pt }
 a:link, a:visited { text-decoration: none; color: white }
 a:active, a:hover { text-decoration: none; color: black; background-color: yellow }
+.testingClass{color:#FFFFFF}
 </style>
 </head>
 <body>
