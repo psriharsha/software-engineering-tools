@@ -4,6 +4,7 @@ class Login extends CI_Controller {
 	
 	function index(){
 		$send['content'] = "login_view";
+		$send['error'] = "";
 		$this->load->view('template',$send);
 	}
 	
@@ -47,7 +48,7 @@ class Login extends CI_Controller {
 				redirect(base_url()."index.php/employer/search_Control");
 			}
 			else {
-				$this->index();
+				$this->loginError("Please retype your username and password");
 			}
 		}
 	}
@@ -103,5 +104,12 @@ class Login extends CI_Controller {
 	function logout(){
 		$this->session->sess_destroy();
 		redirect(base_url()."index.php");
+	}
+	
+	function loginError($error)
+	{
+		$send['content'] = "login_view";
+		$send['error'] = $error;
+		$this->load->view('template',$send);
 	}
 }

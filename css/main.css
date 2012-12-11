@@ -382,3 +382,12 @@ select{
 	text-align: center;
 	font-weight: bold;
 }
+
+#adminErrors{
+	color: red;
+}
+
+#loginError{
+    color: red;
+    margin-left: 1em;
+}
