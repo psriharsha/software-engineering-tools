@@ -34,7 +34,7 @@ class manage_controller extends CI_Controller{
 	public function inputExperience()
 	{
 		if($this->input->post('empLevel')!=null){
-			$this->form_validation->set_rules('empLevel','employment level', 'trim');
+			$this->form_validation->set_rules('empLevel','employment level', 'trim|is_unique[employment_levels.employmetLevel]');
 			if($this->form_validation->run() == FALSE)
 			{
 				$this->index();
@@ -53,7 +53,7 @@ class manage_controller extends CI_Controller{
 	public function inputEducation()
 	{
 		if($this->input->post('eduLevel')!=null){
-			$this->form_validation->set_rules('eduLevel','education level', 'trim');
+			$this->form_validation->set_rules('eduLevel','education level', 'trim|is_unique[education_levels.educationLevel]');
 			if($this->form_validation->run() == FALSE)
 			{
 				$this->index();
