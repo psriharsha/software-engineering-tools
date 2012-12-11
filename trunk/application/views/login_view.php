@@ -2,6 +2,10 @@
 <div id="login">
 
 <h2>Login</h2>
+<div id="loginError">
+	<?php if($error!=null)
+			echo $error; ?>
+</div>
 <?php 
 	
 	echo form_open(base_url()."index.php/login/validate_credentials");

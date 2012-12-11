@@ -33,32 +33,40 @@ class manage_controller extends CI_Controller{
 	
 	public function inputExperience()
 	{
-		$this->form_validation->set_rules('empLevel','employment level', 'trim');
-		if($this->form_validation->run() == FALSE)
-		{
-			$this->index();
+		if($this->input->post('empLevel')!=null){
+			$this->form_validation->set_rules('empLevel','employment level', 'trim');
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->index();
+			}
+			else{
+				$data = $this->input->post('empLevel');
+				$this->load->model('manage_model');
+				$this->manage_model->addExperience($data);
+				$this->onError("A new experience level has already been inserted");
+			}
 		}
-		else{
-			$data = $this->input->post('empLevel');
-			$this->load->model('manage_model');
-			$this->manage_model->addExperience($data);
-			$this->index();
-		}
+		else
+		{ $this->onError("Plaese insert employment level");}
 	}
 	
 	public function inputEducation()
 	{
-		$this->form_validation->set_rules('eduLevel','education level', 'trim');
-		if($this->form_validation->run() == FALSE)
-		{
-			$this->index();
+		if($this->input->post('eduLevel')!=null){
+			$this->form_validation->set_rules('eduLevel','education level', 'trim');
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->index();
+			}
+			else{
+				$data = $this->input->post('eduLevel');
+				$this->load->model('manage_model');
+				$this->manage_model->addEducation($data);
+				$this->onError("A new education level has already been inserted");
+				
+			}
 		}
-		else{
-			$data = $this->input->post('eduLevel');
-			$this->load->model('manage_model');
-			$this->manage_model->addEducation($data);
-			$this->index();
-		}
+		else{$this->onError("Please insert education level");}
 	}
 	
 	public function inputJob()
@@ -78,7 +86,7 @@ class manage_controller extends CI_Controller{
 					'sectors_idsectors' => $this->input->post('sector'));
 				$this->load->model('manage_model');
 				$this->manage_model->addJob($data);
-				$this->index();
+				$this->onError("A new job has already been inserted");
 			}
 				if($this->input->post('sectorTxt') !="" && $this->input->post('sector') == 0) {
 					$this->load->model('manage_model');
@@ -90,10 +98,10 @@ class manage_controller extends CI_Controller{
 					);
 
 					$this->manage_model->addJob($data2);
-					$this->index();
+					$this->onError("A new job has already been inserted");
 				}
 				else {
-					$this->onError("Select Sector from the drop down or Input a new sector in the text box provided");
+					$this->onError("Select/input the sector either from the drop down or text box provided");
 				}
 		}
 	}
